@@ -11,102 +11,121 @@
     
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
     
     <!-- Lucide Icons -->
     <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
     
-    <!-- Tailwind Config -->
-    <script>
-        tailwind.config = {
-            darkMode: 'class',
-            theme: {
-                extend: {
-                    colors: {
-                        border: 'hsl(217.2 32.6% 17.5%)',
-                        input: 'hsl(217.2 32.6% 17.5%)',
-                        ring: 'hsl(212.7 26.8% 83.9%)',
-                        background: 'hsl(222.2 84% 4.9%)',
-                        foreground: 'hsl(210 40% 98%)',
-                        primary: {
-                            DEFAULT: 'hsl(210 40% 98%)',
-                            foreground: 'hsl(222.2 47.4% 11.2%)',
-                            50: 'hsl(235 100% 97%)',
-                            100: 'hsl(235 100% 94%)',
-                            200: 'hsl(235 96% 89%)',
-                            300: 'hsl(235 93% 81%)',
-                            400: 'hsl(235 89% 74%)',
-                            500: 'hsl(234 89% 64%)',
-                            600: 'hsl(234 85% 58%)',
-                            700: 'hsl(234 78% 51%)',
-                            800: 'hsl(234 72% 42%)',
-                            900: 'hsl(234 65% 35%)',
-                        },
-                        secondary: {
-                            DEFAULT: 'hsl(217.2 32.6% 17.5%)',
-                            foreground: 'hsl(210 40% 98%)',
-                        },
-                        destructive: {
-                            DEFAULT: 'hsl(0 62.8% 30.6%)',
-                            foreground: 'hsl(210 40% 98%)',
-                        },
-                        muted: {
-                            DEFAULT: 'hsl(217.2 32.6% 17.5%)',
-                            foreground: 'hsl(215 20.2% 65.1%)',
-                        },
-                        accent: {
-                            DEFAULT: 'hsl(217.2 32.6% 17.5%)',
-                            foreground: 'hsl(210 40% 98%)',
-                        },
-                        card: {
-                            DEFAULT: 'hsl(222.2 84% 4.9%)',
-                            foreground: 'hsl(210 40% 98%)',
-                        },
-                    },
-                    borderRadius: {
-                        lg: '0.75rem',
-                        md: 'calc(0.75rem - 2px)',
-                        sm: 'calc(0.75rem - 4px)',
-                    },
-                    keyframes: {
-                        'float': {
-                            '0%, 100%': { transform: 'translateY(0px)' },
-                            '50%': { transform: 'translateY(-10px)' }
-                        },
-                        'pulse-glow': {
-                            '0%, 100%': { opacity: '1' },
-                            '50%': { opacity: '0.5' }
-                        },
-                        'fade-in-up': {
-                            '0%': { transform: 'translateY(20px)', opacity: '0' },
-                            '100%': { transform: 'translateY(0)', opacity: '1' }
-                        },
-                        'shimmer': {
-                            '100%': { transform: 'translateX(100%)' }
-                        },
-                        'gradient-shift': {
-                            '0%, 100%': { backgroundPosition: '0% 50%' },
-                            '50%': { backgroundPosition: '100% 50%' }
-                        }
-                    },
-                    animation: {
-                        'float': 'float 3s ease-in-out infinite',
-                        'pulse-glow': 'pulse-glow 2s ease-in-out infinite',
-                        'fade-in-up': 'fade-in-up 0.5s ease-out',
-                        'shimmer': 'shimmer 2s infinite',
-                        'gradient-shift': 'gradient-shift 3s ease-in-out infinite'
-                    }
-                }
-            }
-        }
-    </script>
-    
     <style>
+        /* Custom CSS variables for dark theme */
+        :root {
+            --background: 0 0% 100%;
+            --foreground: 222.2 84% 4.9%;
+            --card: 0 0% 100%;
+            --card-foreground: 222.2 84% 4.9%;
+            --popover: 0 0% 100%;
+            --popover-foreground: 222.2 84% 4.9%;
+            --primary: 234 89% 64%;
+            --primary-foreground: 0 0% 100%;
+            --primary-50: 235 100% 97%;
+            --primary-100: 235 100% 94%;
+            --primary-200: 235 96% 89%;
+            --primary-300: 235 93% 81%;
+            --primary-400: 235 89% 74%;
+            --primary-500: 234 89% 64%;
+            --primary-600: 234 85% 58%;
+            --primary-700: 234 78% 51%;
+            --primary-800: 234 72% 42%;
+            --primary-900: 234 65% 35%;
+            --secondary: 210 40% 96.1%;
+            --secondary-foreground: 222.2 47.4% 11.2%;
+            --muted: 210 40% 96.1%;
+            --muted-foreground: 215.4 16.3% 46.9%;
+            --accent: 210 40% 96.1%;
+            --accent-foreground: 222.2 47.4% 11.2%;
+            --destructive: 0 84.2% 60.2%;
+            --destructive-foreground: 210 40% 98%;
+            --success: 142 71% 45%;
+            --warning: 45 93% 58%;
+            --info: 200 98% 39%;
+            --border: 214.3 31.8% 91.4%;
+            --input: 214.3 31.8% 91.4%;
+            --ring: 234 89% 64%;
+            --radius: 0.75rem;
+            --ai-gradient-from: 234 89% 64%;
+            --ai-gradient-to: 270 95% 75%;
+            --ai-neural: 280 95% 70%;
+            --ai-circuit: 195 100% 50%;
+            --ai-data: 142 71% 45%;
+        }
+
+        .dark {
+            --background: 222.2 84% 4.9%;
+            --foreground: 210 40% 98%;
+            --card: 222.2 84% 4.9%;
+            --card-foreground: 210 40% 98%;
+            --popover: 222.2 84% 4.9%;
+            --popover-foreground: 210 40% 98%;
+            --primary: 210 40% 98%;
+            --primary-foreground: 222.2 47.4% 11.2%;
+            --secondary: 217.2 32.6% 17.5%;
+            --secondary-foreground: 210 40% 98%;
+            --muted: 217.2 32.6% 17.5%;
+            --muted-foreground: 215 20.2% 65.1%;
+            --accent: 217.2 32.6% 17.5%;
+            --accent-foreground: 210 40% 98%;
+            --destructive: 0 62.8% 30.6%;
+            --destructive-foreground: 210 40% 98%;
+            --border: 217.2 32.6% 17.5%;
+            --input: 217.2 32.6% 17.5%;
+            --ring: 212.7 26.8% 83.9%;
+        }
+
         body {
             font-family: 'Inter', system-ui, sans-serif;
+            background-color: hsl(var(--background));
+            color: hsl(var(--foreground));
+        }
+
+        /* Custom animations */
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+
+        @keyframes pulse-glow {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+
+        @keyframes fade-in-up {
+            0% { transform: translateY(20px); opacity: 0; }
+            100% { transform: translateY(0); opacity: 1; }
+        }
+
+        @keyframes shimmer {
+            100% { transform: translateX(100%); }
+        }
+
+        @keyframes gradient-shift {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+
+        .animate-float {
+            animation: float 3s ease-in-out infinite;
+        }
+
+        .animate-pulse-glow {
+            animation: pulse-glow 2s ease-in-out infinite;
+        }
+
+        .animate-fade-in-up {
+            animation: fade-in-up 0.5s ease-out;
         }
 
         .text-gradient {
-            background: linear-gradient(to right, #6366f1, #8b5cf6);
+            background: linear-gradient(to right, hsl(var(--primary-600)), hsl(var(--ai-neural)));
             background-clip: text;
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
@@ -115,7 +134,7 @@
         }
 
         .btn-ai {
-            background: linear-gradient(to right, #6366f1, #7c3aed);
+            background: linear-gradient(to right, hsl(var(--primary-500)), hsl(var(--primary-600)));
             position: relative;
             overflow: hidden;
             transition: all 0.3s ease;
@@ -123,7 +142,7 @@
         }
 
         .btn-ai:hover {
-            background: linear-gradient(to right, #7c3aed, #8b5cf6);
+            background: linear-gradient(to right, hsl(var(--primary-600)), hsl(var(--ai-neural)));
             transform: translateY(-2px) scale(1.05);
             box-shadow: 0 8px 25px rgba(99, 102, 241, 0.4);
         }
@@ -149,14 +168,15 @@
 
         .card-hover:hover {
             transform: translateY(-8px);
-            box-shadow: 0 25px 50px rgba(99, 102, 241, 0.3);
+            box-shadow: 0 25px 50px hsl(var(--primary-500) / 0.3);
+            border-color: hsl(var(--primary-500) / 0.3);
         }
 
         .neural-bg {
             background-image: 
-                radial-gradient(circle at 25% 25%, rgba(99, 102, 241, 0.15) 0%, transparent 50%),
-                radial-gradient(circle at 75% 75%, rgba(139, 92, 246, 0.12) 0%, transparent 50%),
-                radial-gradient(circle at 50% 10%, rgba(56, 189, 248, 0.08) 0%, transparent 40%);
+                radial-gradient(circle at 25% 25%, hsl(var(--primary-500) / 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 75% 75%, hsl(var(--ai-neural) / 0.12) 0%, transparent 50%),
+                radial-gradient(circle at 50% 10%, hsl(var(--ai-circuit) / 0.08) 0%, transparent 40%);
         }
 
         .accordion-content {
@@ -172,70 +192,62 @@
             max-height: 0;
         }
 
+        /* Progress bar */
         .progress-bar {
-            background-color: rgba(255, 255, 255, 0.1);
+            background-color: hsl(var(--muted));
             height: 8px;
             border-radius: 4px;
             overflow: hidden;
         }
 
         .progress-fill {
-            background: linear-gradient(to right, #6366f1, #7c3aed);
+            background: linear-gradient(to right, hsl(var(--primary-500)), hsl(var(--primary-600)));
             height: 100%;
             border-radius: 4px;
             transition: width 1s ease;
         }
-
-        .grayscale-hover {
-            filter: grayscale(100%);
-            transition: filter 0.3s ease;
-        }
-
-        .grayscale-hover:hover {
-            filter: grayscale(0%);
-        }
     </style>
 </head>
-<body class="min-h-screen bg-background text-foreground">
+<body class="min-h-screen bg-background">
     <!-- Enhanced Header -->
-    <header class="sticky top-0 z-50 w-full border-b border-border/50 bg-background/90 backdrop-blur-xl">
-        <div class="container mx-auto flex h-16 items-center justify-between px-4">
-            <div class="flex items-center space-x-2">
-                <div class="relative group">
-                    <div class="absolute -inset-1 bg-gradient-to-r from-blue-500 to-purple-600 rounded-lg blur opacity-30 group-hover:opacity-75 transition duration-1000"></div>
-                    <div class="relative flex items-center space-x-2">
-                        <div class="h-8 w-8 rounded-lg bg-gradient-to-br from-blue-600 to-purple-600 flex items-center justify-center shadow-lg">
-                            <i data-lucide="brain" class="h-5 w-5 text-white animate-pulse-glow"></i>
-                        </div>
-                        <span class="text-xl font-bold text-gradient">AI Academy</span>
+ <header class="sticky top-0 z-50 w-full  border-border/50 bg-background/90 backdrop-blur-xl">
+    <div class="container mx-auto flex h-16 items-center justify-between px-4">
+        <div class="flex items-center space-x-2">
+            <div class="relative group">
+                <div class="absolute -inset-1 bg-gradient-to-r from-primary-500 to-ai-neural rounded-lg blur opacity-30 group-hover:opacity-75 transition duration-1000"></div>
+                <div class="relative flex items-center space-x-2">
+                    <div class="h-8 w-8 rounded-lg bg-gradient-to-br from-blue-600 to-purple-600 flex items-center justify-center shadow-lg">
+                        <i data-lucide="brain" class="h-5 w-5 text-white animate-pulse-glow"></i>
                     </div>
+                    <span class="text-xl font-bold text-gradient">AI Academy</span>
                 </div>
             </div>
+        </div>
 
-            <nav class="hidden md:flex items-center space-x-8">
-                <a href="#" class="text-sm font-medium text-foreground hover:text-blue-400 transition-colors relative group">
-                    Home
-                    <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-blue-400 transition-all group-hover:w-full"></span>
-                </a>
-                <a href="#courses" class="text-sm font-medium text-muted-foreground hover:text-blue-400 transition-colors relative group">
-                    Courses
-                    <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-blue-400 transition-all group-hover:w-full"></span>
-                </a>
-                <a href="#blog" class="text-sm font-medium text-muted-foreground hover:text-blue-400 transition-colors relative group">
-                    Blog
-                    <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-blue-400 transition-all group-hover:w-full"></span>
-                </a>
-                <a href="#instructors" class="text-sm font-medium text-muted-foreground hover:text-blue-400 transition-colors relative group">
-                    Instructors
-                    <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-blue-400 transition-all group-hover:w-full"></span>
-                </a>
-                <a href="#support" class="text-sm font-medium text-muted-foreground hover:text-blue-400 transition-colors relative group">
-                    Support
-                    <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-blue-400 transition-all group-hover:w-full"></span>
-                </a>
-            </nav>
+        <nav class="hidden md:flex items-center space-x-8">
+            <a href="#" class="text-sm font-medium text-foreground hover:text-blue-400 transition-colors relative group">
+                Home
+                <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-blue-400 transition-all group-hover:w-full"></span>
+            </a>
+            <a href="#courses" class="text-sm font-medium text-muted-foreground hover:text-blue-400 transition-colors relative group">
+                Courses
+                <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-blue-400 transition-all group-hover:w-full"></span>
+            </a>
+            <a href="#blog" class="text-sm font-medium text-muted-foreground hover:text-blue-400 transition-colors relative group">
+                Blog
+                <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-blue-400 transition-all group-hover:w-full"></span>
+            </a>
+            <a href="#instructors" class="text-sm font-medium text-muted-foreground hover:text-blue-400 transition-colors relative group">
+                Instructors
+                <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-blue-400 transition-all group-hover:w-full"></span>
+            </a>
+            <a href="#support" class="text-sm font-medium text-muted-foreground hover:text-blue-400 transition-colors relative group">
+                Support
+                <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-blue-400 transition-all group-hover:w-full"></span>
+            </a>
+        </nav>
 
-              <div class="flex items-center space-x-4">
+        <div class="flex items-center space-x-4">
             <button class="hidden sm:inline-flex text-sm font-medium text-muted-foreground hover:text-foreground transition-colors px-4 py-2 rounded-lg hover:bg-muted/20">
                 Sign In
             </button>
@@ -244,11 +256,10 @@
                 <i data-lucide="arrow-right" class="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1"></i>
             </button>
         </div>
-        </div>
-    </header>
-
+    </div>
+</header>
     <!-- Enhanced Hero Section with Animations -->
-   <section class="relative overflow-hidden bg-gradient-to-br from-background via-background to-blue-900/20 py-20 lg:py-32">
+ <section class="relative overflow-hidden bg-gradient-to-br from-background via-background to-blue-900/20 py-20 lg:py-32">
     <div class="absolute inset-0">
         <div class="absolute inset-0 neural-bg opacity-20"></div>
         <div class="absolute top-20 left-10 w-72 h-72 bg-blue-500/30 rounded-full blur-3xl animate-float"></div>
@@ -327,13 +338,7 @@
 
     <!-- Enhanced Special Offers -->
     <section class="relative bg-gradient-to-r from-blue-600 via-blue-700 to-purple-600 py-12 overflow-hidden">
-        <div class="absolute inset-0 opacity-10">
-            <svg width="40" height="40" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg" class="w-full h-full">
-                <g fill="#6366f1" fill-opacity="0.03">
-                    <path d="M20 20h20v20H20V20zm-20 0h20v20H0V20z"/>
-                </g>
-            </svg>
-        </div>
+        <div class="absolute inset-0 opacity-10" style="background-image: url('data:image/svg+xml,%3Csvg width=\"40\" height=\"40\" viewBox=\"0 0 40 40\" xmlns=\"http://www.w3.org/2000/svg\"%3E%3Cg fill=\"%236366f1\" fill-opacity=\"0.03\"%3E%3Cpath d=\"M20 20h20v20H20V20zm-20 0h20v20H0V20z\"/%3E%3C/g%3E%3C/svg%3E');"></div>
         <div class="container mx-auto px-4 relative">
             <div class="flex flex-col items-center justify-between gap-6 text-center text-white lg:flex-row lg:text-left">
                 <div class="flex items-center gap-4">
@@ -372,7 +377,7 @@
 
             <div class="grid gap-8 md:grid-cols-3">
                 <!-- Machine Learning Engineer Path -->
-                <div class="relative overflow-hidden card-hover border border-border/20 shadow-xl rounded-lg bg-card/50 backdrop-blur-sm">
+                <div class="relative overflow-hidden card-hover  border-border/20 shadow-xl rounded-lg bg-card/50 backdrop-blur-sm">
                     <div class="absolute inset-0 bg-gradient-to-br from-blue-500 to-cyan-500 opacity-5"></div>
                     <div class="relative p-6">
                         <div class="mb-4 flex items-center justify-between">
@@ -416,7 +421,7 @@
                 </div>
 
                 <!-- Deep Learning Specialist Path -->
-                <div class="relative overflow-hidden card-hover border border-border/20 shadow-xl rounded-lg bg-card/50 backdrop-blur-sm">
+                <div class="relative overflow-hidden card-hover  border-border/20 shadow-xl rounded-lg bg-card/50 backdrop-blur-sm">
                     <div class="absolute inset-0 bg-gradient-to-br from-purple-500 to-pink-500 opacity-5"></div>
                     <div class="relative p-6">
                         <div class="mb-4 flex items-center justify-between">
@@ -460,7 +465,7 @@
                 </div>
 
                 <!-- AI Product Manager Path -->
-                <div class="relative overflow-hidden card-hover border border-border/20 shadow-xl rounded-lg bg-card/50 backdrop-blur-sm">
+                <div class="relative overflow-hidden card-hover  border-border/20 shadow-xl rounded-lg bg-card/50 backdrop-blur-sm">
                     <div class="absolute inset-0 bg-gradient-to-br from-green-500 to-emerald-500 opacity-5"></div>
                     <div class="relative p-6">
                         <div class="mb-4 flex items-center justify-between">
@@ -508,156 +513,155 @@
 
     <!-- Technology Stack -->
     <section class="py-24 bg-muted/50">
-        <div class="container mx-auto px-4">
-            <div class="mb-16 text-center">
-                <h2 class="mb-4 text-4xl font-bold tracking-tight sm:text-5xl text-foreground">
-                    Master Industry-Standard Tools
-                </h2>
-                <p class="mx-auto max-w-2xl text-lg text-muted-foreground">
-                    Learn the same technologies used by top AI companies worldwide
-                </p>
+    <div class="container mx-auto px-4">
+        <div class="mb-16 text-center">
+            <h2 class="mb-4 text-4xl font-bold tracking-tight sm:text-5xl text-foreground">
+                Master Industry-Standard Tools
+            </h2>
+            <p class="mx-auto max-w-2xl text-lg text-muted-foreground">
+                Learn the same technologies used by top AI companies worldwide
+            </p>
+        </div>
+
+        <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
+            <div class="text-center card-hover  border-border/20 shadow-xl rounded-lg p-6" style="background: linear-gradient(135deg, hsl(var(--card)) 50%, hsl(var(--secondary) / 0.5) 150%);">
+                <div class="mx-auto mb-4 h-16 w-16 rounded-xl bg-gradient-to-br from-blue-500 to-blue-700 flex items-center justify-center">
+                    <i data-lucide="code" class="h-8 w-8 text-white"></i>
+                </div>
+                <h3 class="text-lg font-bold mb-2 text-card-foreground">Python</h3>
+                <p class="text-sm text-muted-foreground mb-4">Programming</p>
+                <div class="space-y-2">
+                    <div class="flex justify-between text-sm">
+                        <span>Industry Usage</span>
+                        <span class="font-semibold">95%</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 95%"></div>
+                    </div>
+                </div>
             </div>
 
-            <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
-                <!-- Technology cards -->
-                <div class="text-center card-hover border border-border/20 shadow-xl bg-card/50 backdrop-blur-sm rounded-lg p-6">
-                    <div class="mx-auto mb-4 h-16 w-16 rounded-xl bg-gradient-to-br from-blue-500 to-blue-700 flex items-center justify-center">
-                        <i data-lucide="code" class="h-8 w-8 text-white"></i>
+            <div class="text-center card-hover  border-border/20 shadow-xl rounded-lg p-6" style="background: linear-gradient(135deg, hsl(var(--card)) 50%, hsl(var(--secondary) / 0.5) 150%);">
+                <div class="mx-auto mb-4 h-16 w-16 rounded-xl bg-gradient-to-br from-blue-500 to-blue-700 flex items-center justify-center">
+                    <i data-lucide="database" class="h-8 w-8 text-white"></i>
+                </div>
+                <h3 class="text-lg font-bold mb-2 text-card-foreground">TensorFlow</h3>
+                <p class="text-sm text-muted-foreground mb-4">Framework</p>
+                <div class="space-y-2">
+                    <div class="flex justify-between text-sm">
+                        <span>Industry Usage</span>
+                        <span class="font-semibold">88%</span>
                     </div>
-                    <h3 class="text-lg font-bold mb-2 text-card-foreground">Python</h3>
-                    <p class="text-sm text-muted-foreground mb-4">Programming</p>
-                    <div class="space-y-2">
-                        <div class="flex justify-between text-sm">
-                            <span>Industry Usage</span>
-                            <span class="font-semibold">95%</span>
-                        </div>
-                        <div class="progress-bar">
-                            <div class="progress-fill" style="width: 95%"></div>
-                        </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 88%"></div>
                     </div>
                 </div>
+            </div>
 
-                <div class="text-center card-hover border border-border/20 shadow-xl bg-card/50 backdrop-blur-sm rounded-lg p-6">
-                    <div class="mx-auto mb-4 h-16 w-16 rounded-xl bg-gradient-to-br from-blue-500 to-blue-700 flex items-center justify-center">
-                        <i data-lucide="database" class="h-8 w-8 text-white"></i>
+            <div class="text-center card-hover  border-border/20 shadow-xl rounded-lg p-6" style="background: linear-gradient(135deg, hsl(var(--card)) 50%, hsl(var(--secondary) / 0.5) 150%);">
+                <div class="mx-auto mb-4 h-16 w-16 rounded-xl bg-gradient-to-br from-blue-500 to-blue-700 flex items-center justify-center">
+                    <i data-lucide="cpu" class="h-8 w-8 text-white"></i>
+                </div>
+                <h3 class="text-lg font-bold mb-2 text-card-foreground">PyTorch</h3>
+                <p class="text-sm text-muted-foreground mb-4">Framework</p>
+                <div class="space-y-2">
+                    <div class="flex justify-between text-sm">
+                        <span>Industry Usage</span>
+                        <span class="font-semibold">85%</span>
                     </div>
-                    <h3 class="text-lg font-bold mb-2 text-card-foreground">TensorFlow</h3>
-                    <p class="text-sm text-muted-foreground mb-4">Framework</p>
-                    <div class="space-y-2">
-                        <div class="flex justify-between text-sm">
-                            <span>Industry Usage</span>
-                            <span class="font-semibold">88%</span>
-                        </div>
-                        <div class="progress-bar">
-                            <div class="progress-fill" style="width: 88%"></div>
-                        </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 85%"></div>
                     </div>
                 </div>
+            </div>
 
-                <div class="text-center card-hover border border-border/20 shadow-xl bg-card/50 backdrop-blur-sm rounded-lg p-6">
-                    <div class="mx-auto mb-4 h-16 w-16 rounded-xl bg-gradient-to-br from-blue-500 to-blue-700 flex items-center justify-center">
-                        <i data-lucide="cpu" class="h-8 w-8 text-white"></i>
+            <div class="text-center card-hover  border-border/20 shadow-xl rounded-lg p-6" style="background: linear-gradient(135deg, hsl(var(--card)) 50%, hsl(var(--secondary) / 0.5) 150%);">
+                <div class="mx-auto mb-4 h-16 w-16 rounded-xl bg-gradient-to-br from-blue-500 to-blue-700 flex items-center justify-center">
+                    <i data-lucide="file-text" class="h-8 w-8 text-white"></i>
+                </div>
+                <h3 class="text-lg font-bold mb-2 text-card-foreground">Jupyter</h3>
+                <p class="text-sm text-muted-foreground mb-4">Environment</p>
+                <div class="space-y-2">
+                    <div class="flex justify-between text-sm">
+                        <span>Industry Usage</span>
+                        <span class="font-semibold">92%</span>
                     </div>
-                    <h3 class="text-lg font-bold mb-2 text-card-foreground">PyTorch</h3>
-                    <p class="text-sm text-muted-foreground mb-4">Framework</p>
-                    <div class="space-y-2">
-                        <div class="flex justify-between text-sm">
-                            <span>Industry Usage</span>
-                            <span class="font-semibold">85%</span>
-                        </div>
-                        <div class="progress-bar">
-                            <div class="progress-fill" style="width: 85%"></div>
-                        </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 92%"></div>
                     </div>
                 </div>
+            </div>
 
-                <div class="text-center card-hover border border-border/20 shadow-xl bg-card/50 backdrop-blur-sm rounded-lg p-6">
-                    <div class="mx-auto mb-4 h-16 w-16 rounded-xl bg-gradient-to-br from-blue-500 to-blue-700 flex items-center justify-center">
-                        <i data-lucide="file-text" class="h-8 w-8 text-white"></i>
+            <div class="text-center card-hover  border-border/20 shadow-xl rounded-lg p-6" style="background: linear-gradient(135deg, hsl(var(--card)) 50%, hsl(var(--secondary) / 0.5) 150%);">
+                <div class="mx-auto mb-4 h-16 w-16 rounded-xl bg-gradient-to-br from-blue-500 to-blue-700 flex items-center justify-center">
+                    <i data-lucide="shield" class="h-8 w-8 text-white"></i>
+                </div>
+                <h3 class="text-lg font-bold mb-2 text-card-foreground">Docker</h3>
+                <p class="text-sm text-muted-foreground mb-4">DevOps</p>
+                <div class="space-y-2">
+                    <div class="flex justify-between text-sm">
+                        <span>Industry Usage</span>
+                        <span class="font-semibold">78%</span>
                     </div>
-                    <h3 class="text-lg font-bold mb-2 text-card-foreground">Jupyter</h3>
-                    <p class="text-sm text-muted-foreground mb-4">Environment</p>
-                    <div class="space-y-2">
-                        <div class="flex justify-between text-sm">
-                            <span>Industry Usage</span>
-                            <span class="font-semibold">92%</span>
-                        </div>
-                        <div class="progress-bar">
-                            <div class="progress-fill" style="width: 92%"></div>
-                        </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 78%"></div>
                     </div>
                 </div>
+            </div>
 
-                <div class="text-center card-hover border border-border/20 shadow-xl bg-card/50 backdrop-blur-sm rounded-lg p-6">
-                    <div class="mx-auto mb-4 h-16 w-16 rounded-xl bg-gradient-to-br from-blue-500 to-blue-700 flex items-center justify-center">
-                        <i data-lucide="shield" class="h-8 w-8 text-white"></i>
+            <div class="text-center card-hover  border-border/20 shadow-xl rounded-lg p-6" style="background: linear-gradient(135deg, hsl(var(--card)) 50%, hsl(var(--secondary) / 0.5) 150%);">
+                <div class="mx-auto mb-4 h-16 w-16 rounded-xl bg-gradient-to-br from-blue-500 to-blue-700 flex items-center justify-center">
+                    <i data-lucide="globe" class="h-8 w-8 text-white"></i>
+                </div>
+                <h3 class="text-lg font-bold mb-2 text-card-foreground">AWS/GCP</h3>
+                <p class="text-sm text-muted-foreground mb-4">Cloud</p>
+                <div class="space-y-2">
+                    <div class="flex justify-between text-sm">
+                        <span>Industry Usage</span>
+                        <span class="font-semibold">82%</span>
                     </div>
-                    <h3 class="text-lg font-bold mb-2 text-card-foreground">Docker</h3>
-                    <p class="text-sm text-muted-foreground mb-4">DevOps</p>
-                    <div class="space-y-2">
-                        <div class="flex justify-between text-sm">
-                            <span>Industry Usage</span>
-                            <span class="font-semibold">78%</span>
-                        </div>
-                        <div class="progress-bar">
-                            <div class="progress-fill" style="width: 78%"></div>
-                        </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 82%"></div>
                     </div>
                 </div>
+            </div>
 
-                <div class="text-center card-hover border border-border/20 shadow-xl bg-card/50 backdrop-blur-sm rounded-lg p-6">
-                    <div class="mx-auto mb-4 h-16 w-16 rounded-xl bg-gradient-to-br from-blue-500 to-blue-700 flex items-center justify-center">
-                        <i data-lucide="globe" class="h-8 w-8 text-white"></i>
+            <div class="text-center card-hover  border-border/20 shadow-xl rounded-lg p-6" style="background: linear-gradient(135deg, hsl(var(--card)) 50%, hsl(var(--secondary) / 0.5) 150%);">
+                <div class="mx-auto mb-4 h-16 w-16 rounded-xl bg-gradient-to-br from-blue-500 to-blue-700 flex items-center justify-center">
+                    <i data-lucide="network" class="h-8 w-8 text-white"></i>
+                </div>
+                <h3 class="text-lg font-bold mb-2 text-card-foreground">Git</h3>
+                <p class="text-sm text-muted-foreground mb-4">Version Control</p>
+                <div class="space-y-2">
+                    <div class="flex justify-between text-sm">
+                        <span>Industry Usage</span>
+                        <span class="font-semibold">98%</span>
                     </div>
-                    <h3 class="text-lg font-bold mb-2 text-card-foreground">AWS/GCP</h3>
-                    <p class="text-sm text-muted-foreground mb-4">Cloud</p>
-                    <div class="space-y-2">
-                        <div class="flex justify-between text-sm">
-                            <span>Industry Usage</span>
-                            <span class="font-semibold">82%</span>
-                        </div>
-                        <div class="progress-bar">
-                            <div class="progress-fill" style="width: 82%"></div>
-                        </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 98%"></div>
                     </div>
                 </div>
+            </div>
 
-                <div class="text-center card-hover border border-border/20 shadow-xl bg-card/50 backdrop-blur-sm rounded-lg p-6">
-                    <div class="mx-auto mb-4 h-16 w-16 rounded-xl bg-gradient-to-br from-blue-500 to-blue-700 flex items-center justify-center">
-                        <i data-lucide="network" class="h-8 w-8 text-white"></i>
-                    </div>
-                    <h3 class="text-lg font-bold mb-2 text-card-foreground">Git</h3>
-                    <p class="text-sm text-muted-foreground mb-4">Version Control</p>
-                    <div class="space-y-2">
-                        <div class="flex justify-between text-sm">
-                            <span>Industry Usage</span>
-                            <span class="font-semibold">98%</span>
-                        </div>
-                        <div class="progress-bar">
-                            <div class="progress-fill" style="width: 98%"></div>
-                        </div>
-                    </div>
+            <div class="text-center card-hover  border-border/20 shadow-xl rounded-lg p-6" style="background: linear-gradient(135deg, hsl(var(--card)) 50%, hsl(var(--secondary) / 0.5) 150%);">
+                <div class="mx-auto mb-4 h-16 w-16 rounded-xl bg-gradient-to-br from-blue-500 to-blue-700 flex items-center justify-center">
+                    <i data-lucide="gauge" class="h-8 w-8 text-white"></i>
                 </div>
-
-                <div class="text-center card-hover border border-border/20 shadow-xl bg-card/50 backdrop-blur-sm rounded-lg p-6">
-                    <div class="mx-auto mb-4 h-16 w-16 rounded-xl bg-gradient-to-br from-blue-500 to-blue-700 flex items-center justify-center">
-                        <i data-lucide="gauge" class="h-8 w-8 text-white"></i>
+                <h3 class="text-lg font-bold mb-2 text-card-foreground">MLflow</h3>
+                <p class="text-sm text-muted-foreground mb-4">MLOps</p>
+                <div class="space-y-2">
+                    <div class="flex justify-between text-sm">
+                        <span>Industry Usage</span>
+                        <span class="font-semibold">75%</span>
                     </div>
-                    <h3 class="text-lg font-bold mb-2 text-card-foreground">MLflow</h3>
-                    <p class="text-sm text-muted-foreground mb-4">MLOps</p>
-                    <div class="space-y-2">
-                        <div class="flex justify-between text-sm">
-                            <span>Industry Usage</span>
-                            <span class="font-semibold">75%</span>
-                        </div>
-                        <div class="progress-bar">
-                            <div class="progress-fill" style="width: 75%"></div>
-                        </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 75%"></div>
                     </div>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
     <!-- Student Projects Gallery -->
     <section class="py-24">
@@ -673,7 +677,7 @@
 
             <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
                 <!-- Project 1 -->
-                <div class="overflow-hidden card-hover border border-border/20 shadow-xl rounded-lg bg-card">
+                <div class="overflow-hidden card-hover  border-border/20 shadow-xl rounded-lg bg-card">
                     <div class="relative">
                         <div class="h-48 w-full bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center">
                             <i data-lucide="brain" class="h-16 w-16 text-white opacity-50"></i>
@@ -712,7 +716,7 @@
                 </div>
 
                 <!-- Project 2 -->
-                <div class="overflow-hidden card-hover border border-border/20 shadow-xl rounded-lg bg-card">
+                <div class="overflow-hidden card-hover  border-border/20 shadow-xl rounded-lg bg-card">
                     <div class="relative">
                         <div class="h-48 w-full bg-gradient-to-br from-green-500 to-blue-600 flex items-center justify-center">
                             <i data-lucide="trending-up" class="h-16 w-16 text-white opacity-50"></i>
@@ -751,7 +755,7 @@
                 </div>
 
                 <!-- Project 3 -->
-                <div class="overflow-hidden card-hover border border-border/20 shadow-xl rounded-lg bg-card">
+                <div class="overflow-hidden card-hover  border-border/20 shadow-xl rounded-lg bg-card">
                     <div class="relative">
                         <div class="h-48 w-full bg-gradient-to-br from-purple-500 to-pink-600 flex items-center justify-center">
                             <i data-lucide="mic" class="h-16 w-16 text-white opacity-50"></i>
@@ -811,40 +815,40 @@
             </div>
 
             <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-8 items-center opacity-60 mb-16">
-                <div class="flex items-center justify-center h-16 grayscale-hover">
+                <div class="flex items-center justify-center h-16 grayscale hover:grayscale-0 transition-all duration-300">
                     <div class="text-xl font-bold text-muted-foreground hover:text-foreground transition-colors">Google</div>
                 </div>
-                <div class="flex items-center justify-center h-16 grayscale-hover">
+                <div class="flex items-center justify-center h-16 grayscale hover:grayscale-0 transition-all duration-300">
                     <div class="text-xl font-bold text-muted-foreground hover:text-foreground transition-colors">Microsoft</div>
                 </div>
-                <div class="flex items-center justify-center h-16 grayscale-hover">
+                <div class="flex items-center justify-center h-16 grayscale hover:grayscale-0 transition-all duration-300">
                     <div class="text-xl font-bold text-muted-foreground hover:text-foreground transition-colors">OpenAI</div>
                 </div>
-                <div class="flex items-center justify-center h-16 grayscale-hover">
+                <div class="flex items-center justify-center h-16 grayscale hover:grayscale-0 transition-all duration-300">
                     <div class="text-xl font-bold text-muted-foreground hover:text-foreground transition-colors">Tesla</div>
                 </div>
-                <div class="flex items-center justify-center h-16 grayscale-hover">
+                <div class="flex items-center justify-center h-16 grayscale hover:grayscale-0 transition-all duration-300">
                     <div class="text-xl font-bold text-muted-foreground hover:text-foreground transition-colors">NVIDIA</div>
                 </div>
-                <div class="flex items-center justify-center h-16 grayscale-hover">
+                <div class="flex items-center justify-center h-16 grayscale hover:grayscale-0 transition-all duration-300">
                     <div class="text-xl font-bold text-muted-foreground hover:text-foreground transition-colors">Meta</div>
                 </div>
-                <div class="flex items-center justify-center h-16 grayscale-hover">
+                <div class="flex items-center justify-center h-16 grayscale hover:grayscale-0 transition-all duration-300">
                     <div class="text-xl font-bold text-muted-foreground hover:text-foreground transition-colors">Amazon</div>
                 </div>
-                <div class="flex items-center justify-center h-16 grayscale-hover">
+                <div class="flex items-center justify-center h-16 grayscale hover:grayscale-0 transition-all duration-300">
                     <div class="text-xl font-bold text-muted-foreground hover:text-foreground transition-colors">Apple</div>
                 </div>
-                <div class="flex items-center justify-center h-16 grayscale-hover">
+                <div class="flex items-center justify-center h-16 grayscale hover:grayscale-0 transition-all duration-300">
                     <div class="text-xl font-bold text-muted-foreground hover:text-foreground transition-colors">Netflix</div>
                 </div>
-                <div class="flex items-center justify-center h-16 grayscale-hover">
+                <div class="flex items-center justify-center h-16 grayscale hover:grayscale-0 transition-all duration-300">
                     <div class="text-xl font-bold text-muted-foreground hover:text-foreground transition-colors">Uber</div>
                 </div>
-                <div class="flex items-center justify-center h-16 grayscale-hover">
+                <div class="flex items-center justify-center h-16 grayscale hover:grayscale-0 transition-all duration-300">
                     <div class="text-xl font-bold text-muted-foreground hover:text-foreground transition-colors">Spotify</div>
                 </div>
-                <div class="flex items-center justify-center h-16 grayscale-hover">
+                <div class="flex items-center justify-center h-16 grayscale hover:grayscale-0 transition-all duration-300">
                     <div class="text-xl font-bold text-muted-foreground hover:text-foreground transition-colors">Adobe</div>
                 </div>
             </div>
@@ -883,7 +887,7 @@
 
             <div class="grid gap-8 lg:grid-cols-3">
                 <!-- Starter Plan -->
-                <div class="relative overflow-hidden card-hover border border-border/20 shadow-lg rounded-lg bg-card">
+                <div class="relative overflow-hidden card-hover  border-border/20 shadow-lg rounded-lg bg-card">
                     <div class="p-6">
                         <h3 class="text-2xl font-bold mb-2 text-card-foreground">Starter</h3>
                         <p class="text-muted-foreground text-base mb-4">Perfect for beginners exploring AI</p>
@@ -964,7 +968,7 @@
                 </div>
 
                 <!-- Enterprise Plan -->
-                <div class="relative overflow-hidden card-hover border border-border/20 shadow-lg rounded-lg bg-card">
+                <div class="relative overflow-hidden card-hover  border-border/20 shadow-lg rounded-lg bg-card">
                     <div class="p-6">
                         <h3 class="text-2xl font-bold mb-2 text-card-foreground">Enterprise</h3>
                         <p class="text-muted-foreground text-base mb-4">For teams and organizations</p>
@@ -1117,7 +1121,7 @@
 
             <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
                 <!-- Resource 1 -->
-                <div class="text-center card-hover border border-border/20 shadow-xl bg-card/50 backdrop-blur-sm rounded-lg p-6">
+                <div style="background: linear-gradient(135deg, hsl(var(--card)) 50%, hsl(var(--secondary) / 0.5) 150%);" class="text-center card-hover  border-border/20 shadow-xl bg-card/50 backdrop-blur-sm rounded-lg p-6">
                     <div class="mx-auto mb-4 h-16 w-16 rounded-2xl bg-gradient-to-br from-blue-500 to-blue-700 flex items-center justify-center">
                         <i data-lucide="play-circle" class="h-8 w-8 text-white"></i>
                     </div>
@@ -1135,7 +1139,7 @@
                 </div>
 
                 <!-- Resource 2 -->
-                <div class="text-center card-hover border border-border/20 shadow-xl bg-card/50 backdrop-blur-sm rounded-lg p-6">
+                <div style="background: linear-gradient(135deg, hsl(var(--card)) 50%, hsl(var(--secondary) / 0.5) 150%);" class="text-center card-hover  border-border/20 shadow-xl bg-card/50 backdrop-blur-sm rounded-lg p-6">
                     <div class="mx-auto mb-4 h-16 w-16 rounded-2xl bg-gradient-to-br from-blue-500 to-blue-700 flex items-center justify-center">
                         <i data-lucide="file-text" class="h-8 w-8 text-white"></i>
                     </div>
@@ -1153,7 +1157,7 @@
                 </div>
 
                 <!-- Resource 3 -->
-                <div class="text-center card-hover border border-border/20 shadow-xl bg-card/50 backdrop-blur-sm rounded-lg p-6">
+                <div style="background: linear-gradient(135deg, hsl(var(--card)) 50%, hsl(var(--secondary) / 0.5) 150%);" class="text-center card-hover  border-border/20 shadow-xl bg-card/50 backdrop-blur-sm rounded-lg p-6">
                     <div class="mx-auto mb-4 h-16 w-16 rounded-2xl bg-gradient-to-br from-blue-500 to-blue-700 flex items-center justify-center">
                         <i data-lucide="code" class="h-8 w-8 text-white"></i>
                     </div>
@@ -1171,7 +1175,7 @@
                 </div>
 
                 <!-- Resource 4 -->
-                <div class="text-center card-hover border border-border/20 shadow-xl bg-card/50 backdrop-blur-sm rounded-lg p-6">
+                <div style="background: linear-gradient(135deg, hsl(var(--card)) 50%, hsl(var(--secondary) / 0.5) 150%);" class="text-center card-hover  border-border/20 shadow-xl bg-card/50 backdrop-blur-sm rounded-lg p-6">
                     <div class="mx-auto mb-4 h-16 w-16 rounded-2xl bg-gradient-to-br from-blue-500 to-blue-700 flex items-center justify-center">
                         <i data-lucide="book-open" class="h-8 w-8 text-white"></i>
                     </div>
@@ -1284,14 +1288,8 @@
 
     <!-- Enhanced Newsletter with Benefits -->
     <section class="bg-gradient-to-r from-blue-600 via-blue-700 to-purple-600 py-24 relative overflow-hidden">
-        <div class="absolute inset-0 opacity-10">
-            <svg width="40" height="40" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg" class="w-full h-full">
-                <g fill="#6366f1" fill-opacity="0.03">
-                    <path d="M20 20h20v20H20V20zm-20 0h20v20H0V20z"/>
-                </g>
-            </svg>
-        </div>
-        <div class="container mx-auto px-4 relative">
+        <!-- <div class="absolute inset-0 opacity-10" style="background-image: url('data:image/svg+xml,%3Csvg width=\"40\" height=\"40\" viewBox=\"0 0 40 40\" xmlns=\"http://www.w3.org/2000/svg\"%3E%3Cg fill=\"%236366f1\" fill-opacity=\"0.03\"%3E%3Cpath d=\"M20 20h20v20H20V20zm-20 0h20v20H0V20z\"/%3E%3C/g%3E%3C/svg%3E');"></div>
+        <div class="container mx-auto px-4 relative"> -->
             <div class="mx-auto max-w-4xl text-center text-white">
                 <h2 class="mb-6 text-4xl font-bold tracking-tight">
                     Join 50,000+ AI Enthusiasts
@@ -1414,6 +1412,43 @@
         // Initialize Lucide icons
         lucide.createIcons();
 
+        // Animated counters
+        function animateCounter(elementId, target, suffix = '') {
+            const element = document.getElementById(elementId);
+            const duration = 2000;
+            const increment = Math.ceil(target / 50);
+            let current = 0;
+            
+            const timer = setInterval(() => {
+                current = Math.min(current + increment, target);
+                element.textContent = current.toLocaleString() + suffix;
+                
+                if (current >= target) {
+                    clearInterval(timer);
+                }
+            }, duration / 50);
+        }
+
+        // Start animations when page loads
+        window.addEventListener('load', () => {
+            animateCounter('student-count', 50000, '+');
+            animateCounter('students-stat', 50000);
+            animateCounter('courses-stat', 200);
+            animateCounter('success-stat', 95);
+            
+            // Special handling for rating
+            const ratingElement = document.getElementById('rating-stat');
+            let rating = 0;
+            const ratingTimer = setInterval(() => {
+                rating = Math.min(rating + 0.1, 4.9);
+                ratingElement.textContent = rating.toFixed(1);
+                
+                if (rating >= 4.9) {
+                    clearInterval(ratingTimer);
+                }
+            }, 40);
+        });
+
         // Countdown timer
         function updateCountdown() {
             let hours = 23;
@@ -1478,9 +1513,9 @@
         window.addEventListener('scroll', () => {
             const header = document.querySelector('header');
             if (window.scrollY > 100) {
-                header.style.backgroundColor = 'rgba(15, 23, 42, 0.95)';
+                header.style.backgroundColor = 'hsl(var(--background) / 0.95)';
             } else {
-                header.style.backgroundColor = 'rgba(15, 23, 42, 0.9)';
+                header.style.backgroundColor = 'hsl(var(--background) / 0.9)';
             }
         });
     </script>
