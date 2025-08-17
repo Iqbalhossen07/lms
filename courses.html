@@ -366,7 +366,7 @@
         </div>
     </header>
 
-    <section class="relative overflow-hidden bg-gradient-to-br from-background via-background to-blue-900/20 py-24 lg:py-40">
+    <section class="relative overflow-hidden bg-gradient-to-br from-background via-background to-blue-900/20 py-16 lg:py-20">
         <div class="absolute inset-0">
             <div class="absolute inset-0 neural-bg opacity-20"></div>
             <div class="absolute top-20 left-10 w-72 h-72 bg-blue-500/30 rounded-full blur-3xl animate-float"></div>
@@ -375,145 +375,148 @@
         </div>
         
         <div class="container mx-auto px-4 relative text-center">
-            <h1 class="mb-4 text-4xl font-bold tracking-tight text-foreground sm:text-6xl lg:text-7xl animate-fade-in-up">
+            <h1 class="mb-4 text-4xl font-bold tracking-tight text-foreground sm:text-6xl lg:text-4xl animate-fade-in-up">
                 <span class="text-gradient">Explore</span> Our Course Catalog
             </h1>
             <p class="mx-auto max-w-3xl text-lg text-muted-foreground sm:text-xl animate-fade-in-up" data-aos-delay="200">
                 Dive deep into the world of Artificial Intelligence with our curated courses. Find your perfect learning path from beginner to expert.
             </p>
-            <div class="flex justify-center items-center gap-4 mt-8 animate-fade-in-up" data-aos-delay="300">
-                <button class="px-6 py-3 rounded-full text-white bg-blue-600 text-sm font-semibold hover:bg-blue-700 transition-colors shadow-lg">All Courses</button>
-                <button class="px-6 py-3 rounded-full text-muted-foreground bg-muted/50 text-sm font-semibold hover:bg-muted/80 transition-colors">Beginner</button>
-                <button class="px-6 py-3 rounded-full text-muted-foreground bg-muted/50 text-sm font-semibold hover:bg-muted/80 transition-colors">Intermediate</button>
-                <button class="px-6 py-3 rounded-full text-muted-foreground bg-muted/50 text-sm font-semibold hover:bg-muted/80 transition-colors">Advanced</button>
-            </div>
+            
         </div>
     </section>
 
     <section class="py-24 bg-background">
         <div class="container mx-auto px-4">
-            <div class="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
-                
-                <a href="#" class="course-card relative group block" data-aos="fade-up" data-aos-delay="100">
-                    <img src="https://images.unsplash.com/photo-1574175344333-28682a392e62?auto=format&fit=crop&q=80&w=2670" alt="Deep Learning Course" class="w-full h-48 object-cover transition-transform duration-300 group-hover:scale-105">
-                    <div class="p-6">
-                        <div class="flex items-center justify-between mb-2">
-                            <span class="px-2 py-1 bg-secondary text-secondary-foreground rounded text-xs font-semibold">Intermediate</span>
-                            <div class="flex items-center gap-1 text-yellow-500">
-                                <i data-lucide="star" class="h-4 w-4 fill-current"></i>
-                                <span class="text-sm text-muted-foreground">4.9 (1,200)</span>
+            
+            <div class="grid gap-8 md:grid-cols-3">
+                <div class="relative overflow-hidden card-hover border border-border/20 shadow-xl rounded-lg bg-card/50 backdrop-blur-sm" data-aos="fade-up" data-aos-delay="100">
+                    <div class="absolute inset-0 bg-gradient-to-br from-blue-500 to-cyan-500 opacity-5"></div>
+                    <div class="relative p-6">
+                        <div class="mb-4 flex items-center justify-between">
+                            <div class="h-12 w-12 rounded-lg bg-gradient-to-r from-blue-500 to-cyan-500 flex items-center justify-center">
+                                <i data-lucide="bot" class="h-6 w-6 text-white"></i>
+                            </div>
+                            <span class="px-2 py-1 bg-secondary text-secondary-foreground rounded text-xs">Beginner to Advanced</span>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2 text-card-foreground">Machine Learning Engineer</h3>
+                        <p class="text-muted-foreground text-base mb-6">Master ML algorithms, model deployment, and production systems</p>
+                        
+                        <div class="grid grid-cols-3 gap-4 text-center mb-6">
+                            <div>
+                                <div class="text-2xl font-bold text-blue-600">12</div>
+                                <div class="text-xs text-muted-foreground">Courses</div>
+                            </div>
+                            <div>
+                                <div class="text-2xl font-bold text-blue-600">8</div>
+                                <div class="text-xs text-muted-foreground">Projects</div>
+                            </div>
+                            <div>
+                                <div class="text-2xl font-bold text-blue-600">6 months</div>
+                                <div class="text-xs text-muted-foreground">Duration</div>
                             </div>
                         </div>
-                        <h3 class="text-xl font-bold mb-2 text-foreground">Deep Learning Masterclass</h3>
-                        <p class="text-sm text-muted-foreground mb-4">Master building and deploying complex neural networks for computer vision, NLP, and more.</p>
-                        <div class="w-full h-px bg-border my-4"></div>
-                        <div class="flex items-center justify-between">
-                            <span class="text-xl font-bold text-foreground">$79</span>
-                            <button class="btn-ai text-white text-sm font-semibold py-2 px-4 rounded-lg cta-btn">View Course</button>
-                        </div>
-                    </div>
-                </a>
-
-                <a href="#" class="course-card relative group block" data-aos="fade-up" data-aos-delay="200">
-                    <img src="https://images.unsplash.com/photo-1582234033100-2f9611f7a075?auto=format&fit=crop&q=80&w=2670" alt="Python for AI Course" class="w-full h-48 object-cover transition-transform duration-300 group-hover:scale-105">
-                    <div class="p-6">
-                        <div class="flex items-center justify-between mb-2">
-                            <span class="px-2 py-1 bg-green-500/20 text-green-500 rounded text-xs font-semibold">Beginner</span>
-                            <div class="flex items-center gap-1 text-yellow-500">
-                                <i data-lucide="star" class="h-4 w-4 fill-current"></i>
-                                <span class="text-sm text-muted-foreground">4.8 (5,100)</span>
+                        
+                        <div class="mb-6">
+                            <div class="text-sm font-medium mb-2">Key Skills:</div>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="px-2 py-1 border border-border rounded text-xs">Python</span>
+                                <span class="px-2 py-1 border border-border rounded text-xs">TensorFlow</span>
+                                <span class="px-2 py-1 border border-border rounded text-xs">MLOps</span>
+                                <span class="px-2 py-1 border border-border rounded text-xs">Model Deployment</span>
                             </div>
                         </div>
-                        <h3 class="text-xl font-bold mb-2 text-foreground">Python for AI & Data Science</h3>
-                        <p class="text-sm text-muted-foreground mb-4">A complete guide to Python for AI, covering essential libraries like NumPy, Pandas, and Scikit-learn.</p>
-                        <div class="w-full h-px bg-border my-4"></div>
-                        <div class="flex items-center justify-between">
-                            <span class="text-xl font-bold text-foreground">$49</span>
-                            <button class="btn-ai text-white text-sm font-semibold py-2 px-4 rounded-lg cta-btn">View Course</button>
-                        </div>
-                    </div>
-                </a>
 
-                <a href="#" class="course-card relative group block" data-aos="fade-up" data-aos-delay="300">
-                    <img src="https://images.unsplash.com/photo-1620281656839-4d6b5e13028c?auto=format&fit=crop&q=80&w=2670" alt="NLP Course" class="w-full h-48 object-cover transition-transform duration-300 group-hover:scale-105">
-                    <div class="p-6">
-                        <div class="flex items-center justify-between mb-2">
-                            <span class="px-2 py-1 bg-purple-500/20 text-purple-500 rounded text-xs font-semibold">Advanced</span>
-                            <div class="flex items-center gap-1 text-yellow-500">
-                                <i data-lucide="star" class="h-4 w-4 fill-current"></i>
-                                <span class="text-sm text-muted-foreground">4.7 (890)</span>
+                        <button class="w-full btn-ai text-white font-semibold py-3 px-6 rounded-lg">
+                            Start Learning Path <i data-lucide="chevron-right" class="ml-2 h-4 w-4 inline"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="relative overflow-hidden card-hover border border-border/20 shadow-xl rounded-lg bg-card/50 backdrop-blur-sm" data-aos="fade-up" data-aos-delay="200">
+                    <div class="absolute inset-0 bg-gradient-to-br from-purple-500 to-pink-500 opacity-5"></div>
+                    <div class="relative p-6">
+                        <div class="mb-4 flex items-center justify-between">
+                            <div class="h-12 w-12 rounded-lg bg-gradient-to-r from-purple-500 to-pink-500 flex items-center justify-center">
+                                <i data-lucide="network" class="h-6 w-6 text-white"></i>
+                            </div>
+                            <span class="px-2 py-1 bg-secondary text-secondary-foreground rounded text-xs">Intermediate to Expert</span>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2 text-card-foreground">Deep Learning Specialist</h3>
+                        <p class="text-muted-foreground text-base mb-6">Build neural networks, CNNs, RNNs, and transformer models</p>
+                        
+                        <div class="grid grid-cols-3 gap-4 text-center mb-6">
+                            <div>
+                                <div class="text-2xl font-bold text-purple-600">15</div>
+                                <div class="text-xs text-muted-foreground">Courses</div>
+                            </div>
+                            <div>
+                                <div class="text-2xl font-bold text-purple-600">12</div>
+                                <div class="text-xs text-muted-foreground">Projects</div>
+                            </div>
+                            <div>
+                                <div class="text-2xl font-bold text-purple-600">8 months</div>
+                                <div class="text-xs text-muted-foreground">Duration</div>
                             </div>
                         </div>
-                        <h3 class="text-xl font-bold mb-2 text-foreground">NLP Fundamentals & Large Language Models</h3>
-                        <p class="text-sm text-muted-foreground mb-4">Learn how to process, analyze, and generate human language using advanced models like BERT and GPT.</p>
-                        <div class="w-full h-px bg-border my-4"></div>
-                        <div class="flex items-center justify-between">
-                            <span class="text-xl font-bold text-foreground">$89</span>
-                            <button class="btn-ai text-white text-sm font-semibold py-2 px-4 rounded-lg cta-btn">View Course</button>
-                        </div>
-                    </div>
-                </a>
-
-                <a href="#" class="course-card relative group block" data-aos="fade-up" data-aos-delay="400">
-                    <img src="https://images.unsplash.com/photo-1623912952402-23f269a6eb60?auto=format&fit=crop&q=80&w=2670" alt="Computer Vision Course" class="w-full h-48 object-cover transition-transform duration-300 group-hover:scale-105">
-                    <div class="p-6">
-                        <div class="flex items-center justify-between mb-2">
-                            <span class="px-2 py-1 bg-blue-500/20 text-blue-500 rounded text-xs font-semibold">Intermediate</span>
-                            <div class="flex items-center gap-1 text-yellow-500">
-                                <i data-lucide="star" class="h-4 w-4 fill-current"></i>
-                                <span class="text-sm text-muted-foreground">4.8 (1,500)</span>
+                        
+                        <div class="mb-6">
+                            <div class="text-sm font-medium mb-2">Key Skills:</div>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="px-2 py-1 border border-border rounded text-xs">PyTorch</span>
+                                <span class="px-2 py-1 border border-border rounded text-xs">Computer Vision</span>
+                                <span class="px-2 py-1 border border-border rounded text-xs">NLP</span>
+                                <span class="px-2 py-1 border border-border rounded text-xs">GANs</span>
                             </div>
                         </div>
-                        <h3 class="text-xl font-bold mb-2 text-foreground">Computer Vision with Python</h3>
-                        <p class="text-sm text-muted-foreground mb-4">Dive into the world of image and video analysis. Build projects like object detection and facial recognition.</p>
-                        <div class="w-full h-px bg-border my-4"></div>
-                        <div class="flex items-center justify-between">
-                            <span class="text-xl font-bold text-foreground">$69</span>
-                            <button class="btn-ai text-white text-sm font-semibold py-2 px-4 rounded-lg cta-btn">View Course</button>
-                        </div>
-                    </div>
-                </a>
 
-                <a href="#" class="course-card relative group block" data-aos="fade-up" data-aos-delay="500">
-                    <img src="https://images.unsplash.com/photo-1582234033100-2f9611f7a075?auto=format&fit=crop&q=80&w=2670" alt="AI Product Management Course" class="w-full h-48 object-cover transition-transform duration-300 group-hover:scale-105">
-                    <div class="p-6">
-                        <div class="flex items-center justify-between mb-2">
-                            <span class="px-2 py-1 bg-orange-500/20 text-orange-500 rounded text-xs font-semibold">Specialty</span>
-                            <div class="flex items-center gap-1 text-yellow-500">
-                                <i data-lucide="star" class="h-4 w-4 fill-current"></i>
-                                <span class="text-sm text-muted-foreground">4.6 (540)</span>
+                        <button class="w-full btn-ai text-white font-semibold py-3 px-6 rounded-lg">
+                            Start Learning Path <i data-lucide="chevron-right" class="ml-2 h-4 w-4 inline"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="relative overflow-hidden card-hover border border-border/20 shadow-xl rounded-lg bg-card/50 backdrop-blur-sm" data-aos="fade-up" data-aos-delay="300">
+                    <div class="absolute inset-0 bg-gradient-to-br from-green-500 to-emerald-500 opacity-5"></div>
+                    <div class="relative p-6">
+                        <div class="mb-4 flex items-center justify-between">
+                            <div class="h-12 w-12 rounded-lg bg-gradient-to-r from-green-500 to-emerald-500 flex items-center justify-center">
+                                <i data-lucide="trending-up" class="h-6 w-6 text-white"></i>
+                            </div>
+                            <span class="px-2 py-1 bg-secondary text-secondary-foreground rounded text-xs">Business Focused</span>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2 text-card-foreground">AI Product Manager</h3>
+                        <p class="text-muted-foreground text-base mb-6">Lead AI product development and strategy in tech companies</p>
+                        
+                        <div class="grid grid-cols-3 gap-4 text-center mb-6">
+                            <div>
+                                <div class="text-2xl font-bold text-green-600">8</div>
+                                <div class="text-xs text-muted-foreground">Courses</div>
+                            </div>
+                            <div>
+                                <div class="text-2xl font-bold text-green-600">6</div>
+                                <div class="text-xs text-muted-foreground">Projects</div>
+                            </div>
+                            <div>
+                                <div class="text-2xl font-bold text-green-600">4 months</div>
+                                <div class="text-xs text-muted-foreground">Duration</div>
                             </div>
                         </div>
-                        <h3 class="text-xl font-bold mb-2 text-foreground">AI Product Management</h3>
-                        <p class="text-sm text-muted-foreground mb-4">Learn to lead AI product development and strategy in a technology-driven world.</p>
-                        <div class="w-full h-px bg-border my-4"></div>
-                        <div class="flex items-center justify-between">
-                            <span class="text-xl font-bold text-foreground">$59</span>
-                            <button class="btn-ai text-white text-sm font-semibold py-2 px-4 rounded-lg cta-btn">View Course</button>
-                        </div>
-                    </div>
-                </a>
-
-                <a href="#" class="course-card relative group block" data-aos="fade-up" data-aos-delay="600">
-                    <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&q=80&w=2574" alt="AI Ethics Course" class="w-full h-48 object-cover transition-transform duration-300 group-hover:scale-105">
-                    <div class="p-6">
-                        <div class="flex items-center justify-between mb-2">
-                            <span class="px-2 py-1 bg-red-500/20 text-red-500 rounded text-xs font-semibold">Specialty</span>
-                            <div class="flex items-center gap-1 text-yellow-500">
-                                <i data-lucide="star" class="h-4 w-4 fill-current"></i>
-                                <span class="text-sm text-muted-foreground">4.8 (950)</span>
+                        
+                        <div class="mb-6">
+                            <div class="text-sm font-medium mb-2">Key Skills:</div>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="px-2 py-1 border border-border rounded text-xs">AI Strategy</span>
+                                <span class="px-2 py-1 border border-border rounded text-xs">Product Design</span>
+                                <span class="px-2 py-1 border border-border rounded text-xs">Ethics</span>
+                                <span class="px-2 py-1 border border-border rounded text-xs">Business</span>
                             </div>
                         </div>
-                        <h3 class="text-xl font-bold mb-2 text-foreground">AI Ethics and Governance</h3>
-                        <p class="text-sm text-muted-foreground mb-4">Understand the critical ethical considerations and governance frameworks for building responsible AI systems.</p>
-                        <div class="w-full h-px bg-border my-4"></div>
-                        <div class="flex items-center justify-between">
-                            <span class="text-xl font-bold text-foreground">$49</span>
-                            <button class="btn-ai text-white text-sm font-semibold py-2 px-4 rounded-lg cta-btn">View Course</button>
-                        </div>
-                    </div>
-                </a>
 
+                        <button class="w-full btn-ai text-white font-semibold py-3 px-6 rounded-lg">
+                            Start Learning Path <i data-lucide="chevron-right" class="ml-2 h-4 w-4 inline"></i>
+                        </button>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
