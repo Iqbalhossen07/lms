@@ -257,7 +257,7 @@
 
         .card-hover:hover {
             transform: translateY(-8px);
-            box-shadow: 0 25px 50px hsl(var(--primary-500) / 0.3);
+            box-shadow: 0 10px 20px #09101F;
             border-color: hsl(var(--primary-500) / 0.3);
         }
 
@@ -295,9 +295,46 @@
             border-radius: 4px;
             transition: width 1s ease;
         }
+
+           @keyframes pulse-slow {
+        0%, 100% {
+            transform: scale(1);
+        }
+        50% {
+            transform: scale(1.1);
+        }
+    }
+    .animate-pulse-slow {
+        animation: pulse-slow 5s ease-in-out infinite;
+    }
+    .about-card {
+        width: 180px;
+        height: 180px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        padding: 1rem;
+        box-sizing: border-box;
+        border-radius: 0.75rem;
+        border-width: 2px;
+        border-color: rgba(255, 255, 255, 0.1);
+        background-color: rgba(var(--card), 0.5);
+        backdrop-filter: blur(8px);
+        box-shadow: var(--tw-shadow);
+        transition: all 0.3s ease;
+        cursor: pointer;
+    }
+    .about-card:hover {
+        transform: scale(1.05);
+        border-color: rgba(var(--primary-500), 0.5);
+        box-shadow: 0 25px 50px -12px rgba(var(--primary-500), 0.3);
+    }
     </style>
 </head>
 <body class="min-h-screen bg-background text-foreground">
+    <!-- header -->
     <header class="sticky top-0 z-50 w-full  border-border/50 bg-background/90 backdrop-blur-xl">
     <div class="container mx-auto flex h-16 items-center justify-between px-4">
         <div class="flex items-center space-x-2">
@@ -347,6 +384,7 @@
     </div>
 </header>
 
+<!-- hero section -->
     <section class="relative overflow-hidden bg-gradient-to-br from-background via-background to-blue-900/20 py-20 lg:py-32">
     <div class="absolute inset-0">
         <div class="absolute inset-0 neural-bg opacity-20"></div>
@@ -455,6 +493,7 @@
             </div>
         </div>
     </section>
+
 
     <section class="py-24 bg-gradient-to-b from-background to-background/50" id="courses">
         <div class="container mx-auto px-4">
@@ -599,6 +638,102 @@
             </div>
         </div>
     </section>
+
+
+    
+    <!-- about section -->
+<section class="py-24 bg-background relative overflow-hidden" id="about">
+    <div class="absolute inset-0 z-0 opacity-20">
+        <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_top_left,_var(--tw-gradient-stops))] from-primary-500/20 to-transparent animate-pulse-slow"></div>
+        <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_right,_var(--tw-gradient-stops))] from-blue-500/20 to-transparent animate-pulse-slow" style="animation-delay: 2s;"></div>
+    </div>
+
+    <div class="container mx-auto px-4 relative z-10 text-center">
+        <div class="mx-auto max-w-3xl" data-aos="fade-up">
+            <h2 class="mb-4 text-4xl font-bold tracking-tight sm:text-5xl text-foreground">
+                <span class="text-gradient">Our Mission</span>: Firing the Neural Network
+            </h2>
+            <p class="text-lg text-muted-foreground">
+                We are building the core intelligence of the next generation. Our academy is a dynamic system where knowledge isn't just taught, it's activated, connected, and amplified.
+            </p>
+        </div>
+
+        <div class="relative w-full max-w-7xl mx-auto mt-20 flex flex-col lg:flex-row items-center justify-center lg:justify-between gap-12 lg:gap-24">
+            
+            <div class="grid grid-cols-2 gap-8 lg:gap-16 lg:order-1">
+                <div class="about-card" data-aos="fade-right" data-aos-delay="300">
+                    <i data-lucide="sparkles" class="h-8 w-8 text-blue-500 mb-2"></i>
+                    <h4 class="text-lg font-bold text-card-foreground whitespace-normal">Data Activation</h4>
+                    <p class="text-sm text-muted-foreground mt-1 whitespace-normal">Transforming data into knowledge.</p>
+                </div>
+
+                <div class="about-card" data-aos="fade-right" data-aos-delay="400">
+                    <i data-lucide="network" class="h-8 w-8 text-green-500 mb-2"></i>
+                    <h4 class="text-lg font-bold text-card-foreground whitespace-normal">Network Expansion</h4>
+                    <p class="text-sm text-muted-foreground mt-1 whitespace-normal">Connecting global learners.</p>
+                </div>
+
+                <div class="about-card" data-aos="fade-right" data-aos-delay="500">
+                    <i data-lucide="trending-up" class="h-8 w-8 text-cyan-500 mb-2"></i>
+                    <h4 class="text-lg font-bold text-card-foreground whitespace-normal">Future-Proof Curriculum</h4>
+                    <p class="text-sm text-muted-foreground mt-1 whitespace-normal">Staying ahead with latest AI technologies.</p>
+                </div>
+
+                <div class="about-card" data-aos="fade-right" data-aos-delay="600">
+                    <i data-lucide="users-2" class="h-8 w-8 text-orange-500 mb-2"></i>
+                    <h4 class="text-lg font-bold text-card-foreground whitespace-normal">Community Hub</h4>
+                    <p class="text-sm text-muted-foreground mt-1 whitespace-normal">A place for collaboration and mentorship.</p>
+                </div>
+            </div>
+
+            <div class="relative z-20 shrink-0 lg:order-2 flex flex-col items-center" data-aos="zoom-in" data-aos-delay="700">
+                <div class="w-40 h-40 rounded-full border-4 border-primary-500/50 bg-card/60 backdrop-blur-md shadow-2xl flex items-center justify-center">
+                    <i data-lucide="brain" class="h-20 w-20 text-primary-500 animate-pulse-glow"></i>
+                </div>
+                <div class="mt-8 text-center hidden lg:block">
+                    <h3 class="text-2xl font-bold text-foreground">Activate Your Potential</h3>
+                    <p class="text-sm text-muted-foreground mt-2">Join our network and build the future.</p>
+                    <button class="btn-ai text-white font-semibold py-3 px-8 rounded-lg shadow-lg mt-4">
+                        Explore Now <i data-lucide="signal-high" class="ml-2 h-4 w-4 inline"></i>
+                    </button>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-2 gap-8 lg:gap-16 lg:order-3">
+                <div class="about-card" data-aos="fade-left" data-aos-delay="800">
+                    <i data-lucide="rocket" class="h-8 w-8 text-purple-500 mb-2"></i>
+                    <h4 class="text-lg font-bold text-card-foreground whitespace-normal">Skill Synthesis</h4>
+                    <p class="text-sm text-muted-foreground mt-1 whitespace-normal">Building complex skills from foundational components.</p>
+                </div>
+                
+                <div class="about-card" data-aos="fade-left" data-aos-delay="900">
+                    <i data-lucide="shield-check" class="h-8 w-8 text-red-500 mb-2"></i>
+                    <h4 class="text-lg font-bold text-card-foreground whitespace-normal">Ethical AI</h4>
+                    <p class="text-sm text-muted-foreground mt-1 whitespace-normal">Built on principles of responsible AI development.</p>
+                </div>
+                
+                <div class="about-card" data-aos="fade-left" data-aos-delay="1000">
+                    <i data-lucide="graduation-cap" class="h-8 w-8 text-yellow-500 mb-2"></i>
+                    <h4 class="text-lg font-bold text-card-foreground whitespace-normal">Expert Mentorship</h4>
+                    <p class="text-sm text-muted-foreground mt-1 whitespace-normal">Guidance from industry leaders.</p>
+                </div>
+                
+                <div class="about-card" data-aos="fade-left" data-aos-delay="1100">
+                    <i data-lucide="code-square" class="h-8 w-8 text-pink-500 mb-2"></i>
+                    <h4 class="text-lg font-bold text-card-foreground whitespace-normal">Project-Based Learning</h4>
+                    <p class="text-sm text-muted-foreground mt-1 whitespace-normal">Hands-on real-world projects.</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="mt-12 text-center lg:hidden" data-aos="fade-up" data-aos-delay="1200">
+            <button class="btn-ai text-white font-semibold py-3 px-8 rounded-lg shadow-lg">
+                Activate Your Potential <i data-lucide="signal-high" class="ml-2 h-4 w-4 inline"></i>
+            </button>
+        </div>
+    </div>
+</section>
+
 
     <section class="py-24 bg-muted/50">
         <div class="container mx-auto px-4">
@@ -750,6 +885,83 @@
             </div>
         </div>
     </section>
+
+    <!-- portfolio section -->
+
+    
+
+    <!-- team section -->
+
+<section class="py-24 bg-background">
+    <div class="container mx-auto px-4">
+        <div class="mb-16 text-center" data-aos="fade-up">
+            <h2 class="mb-4 text-4xl font-bold tracking-tight sm:text-5xl text-foreground">
+                Meet Our Expert Instructors
+            </h2>
+            <p class="mx-auto max-w-2xl text-lg text-muted-foreground">
+                Learn from the best minds in the field. Our instructors are industry leaders with years of experience at top tech companies.
+            </p>
+        </div>
+
+        <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+            <div class="card-hover overflow-hidden rounded-lg border-2 border-primary-500/30 bg-card/50 p-6 backdrop-blur-sm shadow-xl" data-aos="fade-up" data-aos-delay="100">
+                <div class="relative mb-6">
+                    <div class="mx-auto h-40 w-40 rounded-full border-8 border-white overflow-hidden transition-all duration-300 hover:scale-105">
+                        <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&q=80&w=2574" alt="Dr. Anya Sharma" class="h-full w-full object-cover grayscale transition-all duration-300 group-hover:grayscale-0">
+                    </div>
+                    <div class="absolute -bottom-2 left-1/2 -translate-x-1/2 rounded-full bg-primary-600 px-3 py-1 text-xs font-semibold uppercase text-white shadow-lg">
+                        AI Ethicist
+                    </div>
+                </div>
+                <div class="text-center">
+                    <h3 class="mb-1 text-2xl font-bold text-card-foreground">Dr. Anya Sharma</h3>
+                    <p class="mb-3 text-lg text-muted-foreground">Lead AI Researcher, Google</p>
+                    <p class="text-sm text-muted-foreground">
+                        Dr. Sharma specializes in developing ethical frameworks for AI systems. Her courses focus on responsible AI practices, ensuring technology serves humanity.
+                    </p>
+                </div>
+            </div>
+
+            <div class="card-hover overflow-hidden rounded-lg border-2 border-primary-500/30 bg-card/50 p-6 backdrop-blur-sm shadow-xl" data-aos="fade-up" data-aos-delay="200">
+                <div class="relative mb-6">
+                    <div class="mx-auto h-40 w-40 rounded-full border-8 border-white overflow-hidden transition-all duration-300 hover:scale-105">
+                        <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&q=80&w=2574" alt="David Chen" class="h-full w-full object-cover grayscale transition-all duration-300 group-hover:grayscale-0">
+                    </div>
+                    <div class="absolute -bottom-2 left-1/2 -translate-x-1/2 rounded-full bg-primary-600 px-3 py-1 text-xs font-semibold uppercase text-white shadow-lg">
+                        ML Engineer
+                    </div>
+                </div>
+                <div class="text-center">
+                    <h3 class="mb-1 text-2xl font-bold text-card-foreground">David Chen</h3>
+                    <p class="mb-3 text-lg text-muted-foreground">Senior ML Engineer, NVIDIA</p>
+                    <p class="text-sm text-muted-foreground">
+                        David is a master of large-scale machine learning and MLOps. He teaches practical skills for deploying models in real-world production environments.
+                    </p>
+                </div>
+            </div>
+
+            <div class="card-hover overflow-hidden rounded-lg border-2 border-primary-500/30 bg-card/50 p-6 backdrop-blur-sm shadow-xl" data-aos="fade-up" data-aos-delay="300">
+                <div class="relative mb-6">
+                    <div class="mx-auto h-40 w-40 rounded-full border-8 border-white overflow-hidden transition-all duration-300 hover:scale-105">
+                        <img src="https://images.unsplash.com/photo-1557862921-37829c790f19?auto=format&fit=crop&q=80&w=2671" alt="Emily Rodriguez" class="h-full w-full object-cover grayscale transition-all duration-300 group-hover:grayscale-0">
+                    </div>
+                    <div class="absolute -bottom-2 left-1/2 -translate-x-1/2 rounded-full bg-primary-600 px-3 py-1 text-xs font-semibold uppercase text-white shadow-lg">
+                        NLP Specialist
+                    </div>
+                </div>
+                <div class="text-center">
+                    <h3 class="mb-1 text-2xl font-bold text-card-foreground">Emily Rodriguez</h3>
+                    <p class="mb-3 text-lg text-muted-foreground">NLP Research Scientist, OpenAI</p>
+                    <p class="text-sm text-muted-foreground">
+                        Emily's expertise lies in Natural Language Processing. Her courses cover everything from foundational models like BERT to the latest advancements in large language models.
+                    </p>
+                </div>
+            </div>
+
+           
+        </div>
+    </div>
+</section>
 
     <section class="py-24">
         <div class="container mx-auto px-4">
@@ -1092,92 +1304,7 @@
         </div>
     </section>
 
-    <section class="py-24 bg-muted/30">
-        <div class="container mx-auto px-4">
-            <div class="mb-16 text-center" data-aos="fade-up">
-                <h2 class="mb-4 text-4xl font-bold tracking-tight sm:text-5xl text-foreground">
-                    Frequently Asked Questions
-                </h2>
-                <p class="mx-auto max-w-2xl text-lg text-muted-foreground">
-                    Everything you need to know about our AI courses and platform
-                </p>
-            </div>
 
-            <div class="mx-auto max-w-3xl space-y-4">
-                <div class="bg-card/50 backdrop-blur-sm rounded-lg px-6 border border-border/20 shadow-lg" data-aos="fade-up" data-aos-delay="100">
-                    <button class="w-full text-left font-semibold py-4 flex justify-between items-center" onclick="toggleAccordion('faq1')">
-                        Do I need prior programming experience?
-                        <i data-lucide="chevron-down" class="h-4 w-4 transition-transform" id="faq1-icon"></i>
-                    </button>
-                    <div class="accordion-content closed" id="faq1-content">
-                        <div class="pb-4 text-muted-foreground leading-relaxed">
-                            No! Our beginner courses start from the very basics. We teach Python programming alongside AI concepts, so you can learn both simultaneously. Many of our successful students started with zero coding experience.
-                        </div>
-                    </div>
-                </div>
-
-                <div class="bg-card/50 backdrop-blur-sm rounded-lg px-6 border border-border/20 shadow-lg" data-aos="fade-up" data-aos-delay="200">
-                    <button class="w-full text-left font-semibold py-4 flex justify-between items-center" onclick="toggleAccordion('faq2')">
-                        How long does it take to complete a learning path?
-                        <i data-lucide="chevron-down" class="h-4 w-4 transition-transform" id="faq2-icon"></i>
-                    </button>
-                    <div class="accordion-content closed" id="faq2-content">
-                        <div class="pb-4 text-muted-foreground leading-relaxed">
-                            Learning paths typically take 4-8 months depending on the track and your pace. You can study part-time (5-10 hours/week) or full-time (20-40 hours/week). Our adaptive learning system adjusts to your schedule.
-                        </div>
-                    </div>
-                </div>
-
-                <div class="bg-card/50 backdrop-blur-sm rounded-lg px-6 border border-border/20 shadow-lg" data-aos="fade-up" data-aos-delay="300">
-                    <button class="w-full text-left font-semibold py-4 flex justify-between items-center" onclick="toggleAccordion('faq3')">
-                        Are the certificates recognized by employers?
-                        <i data-lucide="chevron-down" class="h-4 w-4 transition-transform" id="faq3-icon"></i>
-                    </button>
-                    <div class="accordion-content closed" id="faq3-content">
-                        <div class="pb-4 text-muted-foreground leading-relaxed">
-                            Yes! Our certificates are industry-recognized and designed with input from hiring managers at top tech companies. Many students have successfully used our certificates to land AI roles at Google, Microsoft, and other leading companies.
-                        </div>
-                    </div>
-                </div>
-
-                <div class="bg-card/50 backdrop-blur-sm rounded-lg px-6 border border-border/20 shadow-lg" data-aos="fade-up" data-aos-delay="400">
-                    <button class="w-full text-left font-semibold py-4 flex justify-between items-center" onclick="toggleAccordion('faq4')">
-                        What kind of support do I get?
-                        <i data-lucide="chevron-down" class="h-4 w-4 transition-transform" id="faq4-icon"></i>
-                    </button>
-                    <div class="accordion-content closed" id="faq4-content">
-                        <div class="pb-4 text-muted-foreground leading-relaxed">
-                            All students get access to our community forum, email support, and regular office hours. Professional plan members also get 1-on-1 mentorship sessions and career guidance from industry experts.
-                        </div>
-                    </div>
-                </div>
-
-                <div class="bg-card/50 backdrop-blur-sm rounded-lg px-6 border border-border/20 shadow-lg" data-aos="fade-up" data-aos-delay="500">
-                    <button class="w-full text-left font-semibold py-4 flex justify-between items-center" onclick="toggleAccordion('faq5')">
-                        Can I access courses on mobile devices?
-                        <i data-lucide="chevron-down" class="h-4 w-4 transition-transform" id="faq5-icon"></i>
-                    </button>
-                    <div class="accordion-content closed" id="faq5-content">
-                        <div class="pb-4 text-muted-foreground leading-relaxed">
-                            Absolutely! Our platform is fully responsive and we have dedicated mobile apps for iOS and Android. You can watch videos, complete exercises, and track progress on any device.
-                        </div>
-                    </div>
-                </div>
-
-                <div class="bg-card/50 backdrop-blur-sm rounded-lg px-6 border border-border/20 shadow-lg" data-aos="fade-up" data-aos-delay="600">
-                    <button class="w-full text-left font-semibold py-4 flex justify-between items-center" onclick="toggleAccordion('faq6')">
-                        What's your refund policy?
-                        <i data-lucide="chevron-down" class="h-4 w-4 transition-transform" id="faq6-icon"></i>
-                    </button>
-                    <div class="accordion-content closed" id="faq6-content">
-                        <div class="pb-4 text-muted-foreground leading-relaxed">
-                            We offer a 30-day money-back guarantee. If you're not satisfied with your learning experience within the first 30 days, we'll provide a full refund, no questions asked.
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
 
     <section class="py-24">
         <div class="container mx-auto px-4">
@@ -1394,6 +1521,192 @@
                 <p class="mt-4 text-sm text-blue-200">
                     ✓ No spam, ever. Unsubscribe anytime. Read our <a href="#" class="underline">privacy policy</a>.
                 </p>
+            </div>
+        </div>
+    </section>
+
+
+    <section class="py-24 bg-muted/30" id="blog">
+    <div class="container mx-auto px-4">
+        <div class="mb-16 text-center" data-aos="fade-up">
+            <h2 class="mb-4 text-4xl font-bold tracking-tight sm:text-5xl text-foreground">
+                Latest from Our Blog
+            </h2>
+            <p class="mx-auto max-w-2xl text-lg text-muted-foreground">
+                Stay updated with the latest trends, tutorials, and breakthroughs in the world of Artificial Intelligence.
+            </p>
+        </div>
+
+        <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+            <a href="#" class="group card-hover overflow-hidden rounded-lg border border-border/20 bg-card/50 backdrop-blur-sm shadow-lg transition-all duration-300" data-aos="fade-up" data-aos-delay="100">
+                <img src="https://lh3.googleusercontent.com/rd-gg-dl/AJfQ9KRxdHoAO8I4xIwbBhkOUvm0wm-RaJO96Lx5OCjpSwQcTmfDi-1lbmtSL3oqgHEL2ZFEQGTRp_0zvOAwFs2PfjBvFGXJGfBwlG657gE5EVw8JgnuPb2ja1iVsJqoKlfxzdAnIFb5-vyYk77QsXUp9vc0bpyCHHPhChPOWGZbyujzVdtpM802loEqpLFk2VhcfXDCrWZTU039emM-XOgsZqDHwLssQplJXLEey-w5SM2DpxEyTgU8i8AlC85cf-ELRWA3l_DeAkFo9p64KemcanvVBuzPvtaj1wRGyo699Lteplt_9T1tVYwPf_crofJiYIkbRHMQNhCDkHEQQKSvWR2lC9f--nzl1fbZxgOBiNda8-PZ8dzKJmfRkvK2kXifWZYJ33kMnN1OjA54cBuTJGL8u6onkX22t_cZNt8bjR6E1UeymSpogNpjwB2Q97Q1-pA4R5znh8Q4J0yx-y-I1g_mM0yFWCLs83Yd4C_Ym-8ZRlj7HGkvy61dbZmOYb5k9pQ-ROgBQh2fKneRGnMW7xQGDNBh1RJn_oFkFSEqb_4jDPHu4GtcBadzVSUs4SeaMrsqvJLVBrqoUKJkhc7hHETep_yf9YUOT1bWSX_Z_51w_5ep5UBlKV0IbS3rOYJXYoi8xBnS1UFuvZcWomvIpck-T59vxi7g37CLxrPt9o6sy6fr1YhltCdCoIty6ZWw6O6cf-ELw7MyR6r93YwuE0xqHOPebrrcVJTf97m6Z66hHeZImC70FCdSNbbOO6jTWnhBB6fRhPIfeLpIcwTpSRaQEJTT2nLYHHyv8nuviMzdUbaHZsR9MoSGyMBT5kNPpSbwvrr3vCdLRdMEdN1-VW_H52teOmwTi0Y5j71hVDo0JNbGZYMbkSatdfH5DII0XVgO23QtZtG7YG_T0qO1QSZcnLeIfTkEOLQWVD74uXGRuxR8pm6TX3lN58YgaLzvPafWztJsduIDFIGKAsgGBrzN0uIOV2Phr4cF_fVsORsECZaepDbJeUS4YsrQ-WN94eHQuxHwKHy0sIe8gk5I_9SaJTXnhpSnuf1Ca5fqgP8u_QPSGb3cinzsmFTE3Vvpw0B_-s32B4gurGiF3gcJz39JoQ1sZshF8lArWUxlp7HJU75QzQR7NwDgNk3zmRyoFGkeoSTiySvDewQWRlD0MpZRsdb3j1Bo2ccZe4lSqs4n5C5sCXDoR2Yul7wBDiPJQbo29vZaBKGVhofi2w2hcxhvr7U8PT3nGVeIDy7FKHeWI3TG0A3sNKX2_tmQbUl381lRPPzBPHndZeexztFA_gCjdR3gJhSPId6_yAQ_xv7hac9Oa_HNhFmt7Yu5NRDVniRqwlojf9tcPxBjOxDUXKOgoDRmsD81dVA0vGApQHrvUz362DQk3g=s512" alt="The Rise of Generative AI" class="h-48 w-full object-cover grayscale transition-all duration-300 group-hover:grayscale-0">
+                <div class="p-6">
+                    <div class="flex items-center justify-between text-sm text-muted-foreground mb-4">
+                        <span class="flex items-center gap-1">
+                            <i data-lucide="calendar" class="h-4 w-4"></i>
+                            Dec 10, 2024
+                        </span>
+                        <span class="flex items-center gap-1">
+                            <i data-lucide="user" class="h-4 w-4"></i>
+                            By Jane Doe
+                        </span>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2 text-card-foreground transition-colors group-hover:text-primary-500">
+                        The Rise of Generative AI: From GPT-4 to DALL-E 3
+                    </h3>
+                    <p class="text-sm text-muted-foreground mb-4">
+                        Explore how generative AI is revolutionizing industries and creativity. We dive deep into the technology behind popular models like GPT-4 and DALL-E 3.
+                    </p>
+                    <div class="inline-flex items-center text-primary-500 font-semibold transition-transform duration-300 group-hover:translate-x-2">
+                        Read More
+                        <i data-lucide="arrow-right" class="ml-2 h-4 w-4"></i>
+                    </div>
+                </div>
+            </a>
+
+            <a href="#" class="group card-hover overflow-hidden rounded-lg border border-border/20 bg-card/50 backdrop-blur-sm shadow-lg transition-all duration-300" data-aos="fade-up" data-aos-delay="200">
+                <img src="https://lh3.googleusercontent.com/rd-gg-dl/AJfQ9KTJIZXGFc-0fE_BjfthRVxiEF5S-OlFJrtldb5PFpn1sUsnk6LtSptEahDlTVczX54ukA1v4I0QymJMcJn01QKXg9eo_OKWxmuZkaDK8KXNtuIUyZyOfbwcVOehxDrXcJCHvgcbHW_XC9Q3oPgiuZbNS4lddr5PPRVjK6h_SowqHDBHvszj-iwiTqV6ROhCzQEaDa3rQ10nl3AGZVdEOlHVSvhGadjSnQTpAr604QJZmbubGJ5vJ7BR28lLep39jfvzesZl8fLg1lXDOZiShDwQV-SdJhI8sOi7j9mh2F0Ptzeb_nwLcXHjg_dweJJST-y3on6gZmeeRyeaDtLsSDi7WhiTq2JGqOGw_oo292KcoBnwMEeHU1Szni-T1KmVECLewEWBeYqLztGFdaqcZb1f_E4xtCDtvBL-eSqDVQP9Ro73RjX_6Z9AGrABzVkUtK8r8UtDIU6SNEuXZK1SZmIWpUpMS4eUV9F6GvdmLBsk9G7dXjWVcpgDA6JIi8HAbpitrEltJFmREirIy6_st4-K28SLDI4lemBLwGU2btkenhKFGqvxv5rphWzEtgHbHS7hWQ7ZedaU4sq5smmJ_mZYwpkco0LCOepQyHVxrYkJi8AwgoHp2XVskGEbiqkP6F65gEZwp2_bfYPbuSrpFbJd5YF2X5u42wuPkoS4hECUch0CTD9y5ti3vBgjE8ZXEbWnvpGNQ_eYbvtF-3JCjHPAQNGI9uFTs1t6-MJgYcsqU8wk8oDzwHGq8mXXtUf0Q92aBWHktHTciquWfWktVJH7ZPh4gMOwdhxVBQHM1gdBtzQSSUJwO79NzAdUoBWtSKlTctI-LnXid2NOGgfA3I28WkJbxc7mh9ZY8cNTSNcQY6xtfNHZAxCAxv9aIN3CQY1WopZjOC6WjaMxECoRCC3zCoYavFIeZEkWatyBGUfmBQ-AyHIP_chqS52AhpHL-6rdUMokj9OIodSvhS9voWv-2TZonM4lxjurHGvK6OY8UFzD1Jz5POiPlucfVcpMCvXuiMmDtjtxsIsktRQfmdG2CeoUJHO2lN-8hk26RYsnQJDGbfQucGSHPzWLvhEAd7zmvzFVv4W0rAQl8wsVZsORus-C9kUfH14YcL31rHz8W8AguwEfuzqZdX1EhfiX4bzIkZKRpTrtpI_ldDenWpv8NxDwmPim0As8D43zUOuo-88ua1i16JMVN7aZbfYuLIohQnU2TMTKRS7f8p4reNbrGrFx0gXOtl6MeLwToP74QzypyBWL-RjFRwLR-b39FJCcbdnpkI3wZdeUA3gzOnm3y6l22y7wgrpOCmN-VAshTRjSg-7bFk6S_9tIMvIgEOzS570PS1uLvqTs89XaTSBH16yIMMUlpT-e7D1ngTQDxP5Ln3Ez=s512" alt="Getting Started with Machine Learning" class="h-48 w-full object-cover grayscale transition-all duration-300 group-hover:grayscale-0">
+                <div class="p-6">
+                    <div class="flex items-center justify-between text-sm text-muted-foreground mb-4">
+                        <span class="flex items-center gap-1">
+                            <i data-lucide="calendar" class="h-4 w-4"></i>
+                            Nov 28, 2024
+                        </span>
+                        <span class="flex items-center gap-1">
+                            <i data-lucide="user" class="h-4 w-4"></i>
+                            By John Smith
+                        </span>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2 text-card-foreground transition-colors group-hover:text-primary-500">
+                        A Beginner's Guide: Your First Steps into Machine Learning
+                    </h3>
+                    <p class="text-sm text-muted-foreground mb-4">
+                        Intimidated by machine learning? Our step-by-step guide breaks down the core concepts and tools you need to build your very first ML model.
+                    </p>
+                    <div class="inline-flex items-center text-primary-500 font-semibold transition-transform duration-300 group-hover:translate-x-2">
+                        Read More
+                        <i data-lucide="arrow-right" class="ml-2 h-4 w-4"></i>
+                    </div>
+                </div>
+            </a>
+
+            <a href="#" class="group card-hover overflow-hidden rounded-lg border border-border/20 bg-card/50 backdrop-blur-sm shadow-lg transition-all duration-300" data-aos="fade-up" data-aos-delay="300">
+                <img src="https://lh3.googleusercontent.com/rd-gg-dl/AJfQ9KQF0hSgyUTXzZPgGqVXI4BNTil68I0BHQiLro-zMQNoMsG05fmb-fONagz9PGy1ovL_sojd-VR0_AkoLBiPCZ3N1utRIBG8k6o1l0yh8r50RqFVNeu9iDHuNul2o4hstheWskzuOAhfQzI8HPxqmAtBfkJIOyJ451GTdO2Tpd8w7sRIBbPKJwt25vcPh0Er3F2jmWhNLl5CY7GmkK4j2-F8Bvt5Ph-eSYVQbSUHdy4p0_1c4_dT0aZncocjxh_CO86YERTYMR6pL8F1jDjnbuo0ezrEd-b66hZE14fXWMXAPW8Hd8j4ErhmMDyKy5YOqaNILo1JVBHcBlQZZW44zjgdbq5pDKvtp9C45Lc-6H39WEeq8y9twaS2dYobuOoEL4mzypcmguNKsRHdmMsZmxZzADx00wkAQW4Gj24WYnLPVH5BjJDpnrK9qrFU_xk0AJT2jAynLK9wlQU3fWubKQymjARviFRR7UBj9yx6plqrNO-WNNwYHjtfzbLFRu2-Bp4VNHsCS8mN2DlXnjXYYv3Xxa24YxUd5KaEBaGVRjuWGbjbO9eRVMopHtR6r9fJiZhvrFmjVl8AFUgzAUqMszT-D-JQUsgni1kSuxKD_-ViY_ZAMbir2_cldTKwSQ98FlYBGOBlyEM0zIksxdeiiBT9lPuhaH_gl2Nv4a9py1DMuiTE7EN193vjZA54kvdQ5EBiTpJLH0Hqt7sb0A_SHnUWBu_rpIX5zpYgqcK-uLpkJAUwZcV3aW38PhedE7NK_SgGeLNn-dZ68ZWk98q-RQvudNw4BnB7Kszr6vxccJhUtVCsZoWTrrwt79ItuCOVV0F8TcB-3eI8i3h4N1osODIDtD968sPzRZDTSx614xpk8M4YJDq6HUDzh9Dvd8n9RNlivzwBcl8ahZwF5KeS5yClUq3xAmxhX2q-FcVabJwF5Zg2TaxtfYh1J9isTxNPUSWlGwc4Rv0ACvn5NnP-biGVXUCvjm7Ku5Kk7-14ZPfDsR5XMbL2S5J16BmGWG-sqTcA_rWxaX51ZVmujMGN02rRvIHd0RVj4EkcwsehpWWa7b3HwunBt_aWeCc40qclasTCefS_7mJoXMLSFVE1dcTH2xW5yVu-U85-3P9YuEQFLI-QQdCblMviXJ62SYC69V_LmYVTeZcYTfqM2V4w-T_tvwO1EvkAn3gM6X1NV20EV0fRjj9Rr0GhhfudbjdX_bIDwqJEnFl0BjFLuPri6albE4oqYMnm9txUccl3CkhGkQ2CRfZr5qXfR6I280HpMW4GOWSf1QllOqPUJ070lb_YW8zMnJ_8bKmoU6wS6r0KLuZdAahZP-wvP0Jp7nEHpigFFCr2JRyTAGE2ijSmUuFHElW_BL_SyrEzitwjQTSkztXH4RBU=s512" alt="Career Paths in AI" class="h-48 w-full object-cover grayscale transition-all duration-300 group-hover:grayscale-0">
+                <div class="p-6">
+                    <div class="flex items-center justify-between text-sm text-muted-foreground mb-4">
+                        <span class="flex items-center gap-1">
+                            <i data-lucide="calendar" class="h-4 w-4"></i>
+                            Nov 15, 2024
+                        </span>
+                        <span class="flex items-center gap-1">
+                            <i data-lucide="user" class="h-4 w-4"></i>
+                            By Alex Chen
+                        </span>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2 text-card-foreground transition-colors group-hover:text-primary-500">
+                        Beyond the Hype: Top 5 Career Paths in the AI Industry
+                    </h3>
+                    <p class="text-sm text-muted-foreground mb-4">
+                        AI is more than just data science. Learn about the diverse roles, from AI Product Manager to Robotics Engineer, and find the perfect fit for you.
+                    </p>
+                    <div class="inline-flex items-center text-primary-500 font-semibold transition-transform duration-300 group-hover:translate-x-2">
+                        Read More
+                        <i data-lucide="arrow-right" class="ml-2 h-4 w-4"></i>
+                    </div>
+                </div>
+            </a>
+        </div>
+        <div class="mt-12 text-center" data-aos="fade-up" data-aos-delay="400">
+            <button class="px-8 py-3 border border-border bg-background hover:bg-muted/20 text-foreground font-medium rounded-lg transition-all">
+                View All Blog Posts <i data-lucide="arrow-right" class="ml-2 h-4 w-4 inline"></i>
+            </button>
+        </div>
+    </div>
+</section>
+
+    <section class="py-24 bg-muted/30">
+        <div class="container mx-auto px-4">
+            <div class="mb-16 text-center" data-aos="fade-up">
+                <h2 class="mb-4 text-4xl font-bold tracking-tight sm:text-5xl text-foreground">
+                    Frequently Asked Questions
+                </h2>
+                <p class="mx-auto max-w-2xl text-lg text-muted-foreground">
+                    Everything you need to know about our AI courses and platform
+                </p>
+            </div>
+
+            <div class="mx-auto max-w-3xl space-y-4">
+                <div class="bg-card/50 backdrop-blur-sm rounded-lg px-6 border border-border/20 shadow-lg" data-aos="fade-up" data-aos-delay="100">
+                    <button class="w-full text-left font-semibold py-4 flex justify-between items-center" onclick="toggleAccordion('faq1')">
+                        Do I need prior programming experience?
+                        <i data-lucide="chevron-down" class="h-4 w-4 transition-transform" id="faq1-icon"></i>
+                    </button>
+                    <div class="accordion-content closed" id="faq1-content">
+                        <div class="pb-4 text-muted-foreground leading-relaxed">
+                            No! Our beginner courses start from the very basics. We teach Python programming alongside AI concepts, so you can learn both simultaneously. Many of our successful students started with zero coding experience.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-card/50 backdrop-blur-sm rounded-lg px-6 border border-border/20 shadow-lg" data-aos="fade-up" data-aos-delay="200">
+                    <button class="w-full text-left font-semibold py-4 flex justify-between items-center" onclick="toggleAccordion('faq2')">
+                        How long does it take to complete a learning path?
+                        <i data-lucide="chevron-down" class="h-4 w-4 transition-transform" id="faq2-icon"></i>
+                    </button>
+                    <div class="accordion-content closed" id="faq2-content">
+                        <div class="pb-4 text-muted-foreground leading-relaxed">
+                            Learning paths typically take 4-8 months depending on the track and your pace. You can study part-time (5-10 hours/week) or full-time (20-40 hours/week). Our adaptive learning system adjusts to your schedule.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-card/50 backdrop-blur-sm rounded-lg px-6 border border-border/20 shadow-lg" data-aos="fade-up" data-aos-delay="300">
+                    <button class="w-full text-left font-semibold py-4 flex justify-between items-center" onclick="toggleAccordion('faq3')">
+                        Are the certificates recognized by employers?
+                        <i data-lucide="chevron-down" class="h-4 w-4 transition-transform" id="faq3-icon"></i>
+                    </button>
+                    <div class="accordion-content closed" id="faq3-content">
+                        <div class="pb-4 text-muted-foreground leading-relaxed">
+                            Yes! Our certificates are industry-recognized and designed with input from hiring managers at top tech companies. Many students have successfully used our certificates to land AI roles at Google, Microsoft, and other leading companies.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-card/50 backdrop-blur-sm rounded-lg px-6 border border-border/20 shadow-lg" data-aos="fade-up" data-aos-delay="400">
+                    <button class="w-full text-left font-semibold py-4 flex justify-between items-center" onclick="toggleAccordion('faq4')">
+                        What kind of support do I get?
+                        <i data-lucide="chevron-down" class="h-4 w-4 transition-transform" id="faq4-icon"></i>
+                    </button>
+                    <div class="accordion-content closed" id="faq4-content">
+                        <div class="pb-4 text-muted-foreground leading-relaxed">
+                            All students get access to our community forum, email support, and regular office hours. Professional plan members also get 1-on-1 mentorship sessions and career guidance from industry experts.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-card/50 backdrop-blur-sm rounded-lg px-6 border border-border/20 shadow-lg" data-aos="fade-up" data-aos-delay="500">
+                    <button class="w-full text-left font-semibold py-4 flex justify-between items-center" onclick="toggleAccordion('faq5')">
+                        Can I access courses on mobile devices?
+                        <i data-lucide="chevron-down" class="h-4 w-4 transition-transform" id="faq5-icon"></i>
+                    </button>
+                    <div class="accordion-content closed" id="faq5-content">
+                        <div class="pb-4 text-muted-foreground leading-relaxed">
+                            Absolutely! Our platform is fully responsive and we have dedicated mobile apps for iOS and Android. You can watch videos, complete exercises, and track progress on any device.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-card/50 backdrop-blur-sm rounded-lg px-6 border border-border/20 shadow-lg" data-aos="fade-up" data-aos-delay="600">
+                    <button class="w-full text-left font-semibold py-4 flex justify-between items-center" onclick="toggleAccordion('faq6')">
+                        What's your refund policy?
+                        <i data-lucide="chevron-down" class="h-4 w-4 transition-transform" id="faq6-icon"></i>
+                    </button>
+                    <div class="accordion-content closed" id="faq6-content">
+                        <div class="pb-4 text-muted-foreground leading-relaxed">
+                            We offer a 30-day money-back guarantee. If you're not satisfied with your learning experience within the first 30 days, we'll provide a full refund, no questions asked.
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
