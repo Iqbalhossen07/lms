@@ -103,187 +103,7 @@
         }
     </script>
     
-    <style>
-        /* Custom CSS variables for dark theme */
-        :root {
-            --background: 0 0% 100%;
-            --foreground: 222.2 84% 4.9%;
-            --card: 0 0% 100%;
-            --card-foreground: 222.2 84% 4.9%;
-            --popover: 0 0% 100%;
-            --popover-foreground: 222.2 84% 4.9%;
-            --primary: 234 89% 64%;
-            --primary-foreground: 0 0% 100%;
-            --primary-50: 235 100% 97%;
-            --primary-100: 235 100% 94%;
-            --primary-200: 235 96% 89%;
-            --primary-300: 235 93% 81%;
-            --primary-400: 235 89% 74%;
-            --primary-500: 234 89% 64%;
-            --primary-600: 234 85% 58%;
-            --primary-700: 234 78% 51%;
-            --primary-800: 234 72% 42%;
-            --primary-900: 234 65% 35%;
-            --secondary: 210 40% 96.1%;
-            --secondary-foreground: 222.2 47.4% 11.2%;
-            --muted: 210 40% 96.1%;
-            --muted-foreground: 215.4 16.3% 46.9%;
-            --accent: 210 40% 96.1%;
-            --accent-foreground: 222.2 47.4% 11.2%;
-            --destructive: 0 84.2% 60.2%;
-            --destructive-foreground: 210 40% 98%;
-            --success: 142 71% 45%;
-            --warning: 45 93% 58%;
-            --info: 200 98% 39%;
-            --border: 214.3 31.8% 91.4%;
-            --input: 214.3 31.8% 91.4%;
-            --ring: 234 89% 64%;
-            --radius: 0.75rem;
-            --ai-gradient-from: 234 89% 64%;
-            --ai-gradient-to: 270 95% 75%;
-            --ai-neural: 280 95% 70%;
-            --ai-circuit: 195 100% 50%;
-            --ai-data: 142 71% 45%;
-        }
-
-        .dark {
-            --background: 222.2 84% 4.9%;
-            --foreground: 210 40% 98%;
-            --card: 222.2 84% 4.9%;
-            --card-foreground: 210 40% 98%;
-            --popover: 222.2 84% 4.9%;
-            --popover-foreground: 210 40% 98%;
-            --primary: 210 40% 98%;
-            --primary-foreground: 222.2 47.4% 11.2%;
-            --secondary: 217.2 32.6% 17.5%;
-            --secondary-foreground: 210 40% 98%;
-            --muted: 217.2 32.6% 17.5%;
-            --muted-foreground: 215 20.2% 65.1%;
-            --accent: 217.2 32.6% 17.5%;
-            --accent-foreground: 210 40% 98%;
-            --destructive: 0 62.8% 30.6%;
-            --destructive-foreground: 210 40% 98%;
-            --border: 217.2 32.6% 17.5%;
-            --input: 217.2 32.6% 17.5%;
-            --ring: 212.7 26.8% 83.9%;
-        }
-
-        body {
-            font-family: 'Lora', system-ui, sans-serif;
-            background-color: hsl(var(--background));
-            color: hsl(var(--foreground));
-        }
-
-        h1, h2, h3, h4, h5, h6 {
-            font-family: 'Merriweather', serif;
-        }
-
-        /* Custom animations */
-        @keyframes float {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-10px); }
-        }
-
-        @keyframes pulse-glow {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0.5; }
-        }
-
-        @keyframes fade-in-up {
-            0% { transform: translateY(20px); opacity: 0; }
-            100% { transform: translateY(0); opacity: 1; }
-        }
-
-        @keyframes shimmer {
-            100% { transform: translateX(100%); }
-        }
-
-        @keyframes gradient-shift {
-            0%, 100% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-        }
-
-        .animate-float {
-            animation: float 3s ease-in-out infinite;
-        }
-
-        .animate-pulse-glow {
-            animation: pulse-glow 2s ease-in-out infinite;
-        }
-
-        .animate-fade-in-up {
-            animation: fade-in-up 0.5s ease-out;
-        }
-
-        .text-gradient {
-            background: linear-gradient(to right, hsl(var(--primary-600)), hsl(var(--ai-neural)));
-            background-clip: text;
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-size: 200% auto;
-            animation: gradient-shift 3s ease-in-out infinite;
-        }
-
-        .btn-ai {
-            background: linear-gradient(to right, hsl(var(--primary-500)), hsl(var(--primary-600)));
-            position: relative;
-            overflow: hidden;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-        }
-
-        .btn-ai:hover {
-            background: linear-gradient(to right, hsl(var(--primary-600)), hsl(var(--ai-neural)));
-            transform: translateY(-2px) scale(1.05);
-            box-shadow: 0 8px 25px rgba(99, 102, 241, 0.4);
-        }
-
-        .btn-ai::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
-            transition: left 0.6s ease;
-        }
-
-        .btn-ai:hover::before {
-            left: 100%;
-        }
-
-        .card-hover {
-            transition: all 0.5s ease;
-        }
-
-        .card-hover:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 10px 20px #09101F;
-            border-color: hsl(var(--primary-500) / 0.3);
-        }
-        
-        @keyframes pulse-slow {
-            0%, 100% {
-                transform: scale(1);
-            }
-            50% {
-                transform: scale(1.1);
-            }
-        }
-        .animate-pulse-slow {
-            animation: pulse-slow 5s ease-in-out infinite;
-        }
-        .blog-card {
-            transition: all 0.3s ease;
-        }
-        .blog-card:hover .blog-image {
-            transform: scale(1.05);
-        }
-        .blog-card .blog-image {
-            transition: transform 0.3s ease;
-        }
-    </style>
+<link rel="stylesheet" href="style.css">
 </head>
 <body class="min-h-screen bg-background text-foreground">
 <header class="fixed top-0 left-0 w-full z-50 bg-background/90 backdrop-blur-md shadow-md">
@@ -363,175 +183,86 @@
     <section class="py-24 bg-background">
         <div class="container mx-auto px-4">
             <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-                
-                <a href="blog-details.html" class="group blog-card overflow-hidden rounded-lg border border-border/20 bg-card/50 backdrop-blur-sm shadow-lg" data-aos="fade-up" data-aos-delay="100">
-                    <div class="overflow-hidden">
-                        <img src="https://lh3.googleusercontent.com/rd-gg-dl/AJfQ9KQF0hSgyUTXzZPgGqVXI4BNTil68I0BHQiLro-zMQNoMsG05fmb-fONagz9PGy1ovL_sojd-VR0_AkoLBiPCZ3N1utRIBG8k6o1l0yh8r50RqFVNeu9iDHuNul2o4hstheWskzuOAhfQzI8HPxqmAtBfkJIOyJ451GTdO2Tpd8w7sRIBbPKJwt25vcPh0Er3F2jmWhNLl5CY7GmkK4j2-F8Bvt5Ph-eSYVQbSUHdy4p0_1c4_dT0aZncocjxh_CO86YERTYMR6pL8F1jDjnbuo0ezrEd-b66hZE14fXWMXAPW8Hd8j4ErhmMDyKy5YOqaNILo1JVBHcBlQZZW44zjgdbq5pDKvtp9C45Lc-6H39WEeq8y9twaS2dYobuOoEL4mzypcmguNKsRHdmMsZmxZzADx00wkAQW4Gj24WYnLPVH5BjJDpnrK9qrFU_xk0AJT2jAynLK9wlQU3fWubKQymjARviFRR7UBj9yx6plqrNO-WNNwYHjtfzbLFRu2-Bp4VNHsCS8mN2DlXnjXYYv3Xxa24YxUd5KaEBaGVRjuWGbjbO9eRVMopHtR6r9fJiZhvrFmjVl8AFUgzAUqMszT-D-JQUsgni1kSuxKD_-ViY_ZAMbir2_cldTKwSQ98FlYBGOBlyEM0zIksxdeiiBT9lPuhaH_gl2Nv4a9py1DMuiTE7EN193vjZA54kvdQ5EBiTpJLH0Hqt7sb0A_SHnUWBu_rpIX5zpYgqcK-uLpkJAUwZcV3aW38PhedE7NK_SgGeLNn-dZ68ZWk98q-RQvudNw4BnB7Kszr6vxccJhUtVCsZoWTrrwt79ItuCOVV0F8TcB-3eI8i3h4N1osODIDtD968sPzRZDTSx614xpk8M4YJDq6HUDzh9Dvd8n9RNlivzwBcl8ahZwF5KeS5yClUq3xAmxhX2q-FcVabJwF5Zg2TaxtfYh1J9isTxNPUSWlGwc4Rv0ACvn5NnP-biGVXUCvjm7Ku5Kk7-14ZPfDsR5XMbL2S5J16BmGWG-sqTcA_rWxaX51ZVmujMGN02rRvIHd0RVj4EkcwsehpWWa7b3HwunBt_aWeCc40qclasTCefS_7mJoXMLSFVE1dcTH2xW5yVu-U85-3P9YuEQFLI-QQdCblMviXJ62SYC69V_LmYVTeZcYTfqM2V4w-T_tvwO1EvkAn3gM6X1NV20EV0fRjj9Rr0GhhfudbjdX_bIDwqJEnFl0BjFLuPri6albE4oqYMnm9txUccl3CkhGkQ2CRfZr5qXfR6I280HpMW4GOWSf1QllOqPUJ070lb_YW8zMnJ_8bKmoU6wS6r0KLuZdAahZP-wvP0Jp7nEHpigFFCr2JRyTAGE2ijSmUuFHElW_BL_SyrEzitwjQTSkztXH4RBU=s512" alt="Generative AI Article" class="blog-image h-48 w-full object-cover">
-                    </div>
-                    <div class="p-6">
-                        <div class="flex items-center justify-between text-sm text-muted-foreground mb-4">
-                            <span class="flex items-center gap-1">
-                                <i data-lucide="calendar" class="h-4 w-4"></i>
-                                Dec 15, 2024
-                            </span>
-                            <span class="flex items-center gap-1">
-                                <i data-lucide="user" class="h-4 w-4"></i>
-                                By Jane Doe
-                            </span>
-                        </div>
-                        <h3 class="text-xl font-bold mb-2 text-card-foreground transition-colors group-hover:text-primary-500">
-                            The Rise of Generative AI: From GPT-4 to DALL-E 3
-                        </h3>
-                        <p class="text-sm text-muted-foreground mb-4">
-                            Explore how generative AI is revolutionizing industries and creativity. We dive deep into the technology behind popular models like GPT-4 and DALL-E 3.
-                        </p>
-                        <div class="inline-flex items-center text-primary-500 font-semibold transition-transform duration-300 group-hover:translate-x-2">
-                            Read More
-                            <i data-lucide="arrow-right" class="ml-2 h-4 w-4"></i>
-                        </div>
-                    </div>
-                </a>
+            <a href="blog-details.html" class="group card-hover overflow-hidden rounded-lg border border-border/20 bg-card/50 backdrop-blur-sm shadow-lg transition-all duration-300" data-aos="fade-up" data-aos-delay="100">
+              
 
-                <a href="blog-details.html" class="group blog-card overflow-hidden rounded-lg border border-border/20 bg-card/50 backdrop-blur-sm shadow-lg" data-aos="fade-up" data-aos-delay="200">
-                    <div class="overflow-hidden">
-                        <img src="https://lh3.googleusercontent.com/rd-gg-dl/AJfQ9KTJIZXGFc-0fE_BjfthRVxiEF5S-OlFJrtldb5PFpn1sUsnk6LtSptEahDlTVczX54ukA1v4I0QymJMcJn01QKXg9eo_OKWxmuZkaDK8KXNtuIUyZyOfbwcVOehxDrXcJCHvgcbHW_XC9Q3oPgiuZbNS4lddr5PPRVjK6h_SowqHDBHvszj-iwiTqV6ROhCzQEaDa3rQ10nl3AGZVdEOlHVSvhGadjSnQTpAr604QJZmbubGJ5vJ7BR28lLep39jfvzesZl8fLg1lXDOZiShDwQV-SdJhI8sOi7j9mh2F0Ptzeb_nwLcXHjg_dweJJST-y3on6gZmeeRyeaDtLsSDi7WhiTq2JGqOGw_oo292KcoBnwMEeHU1Szni-T1KmVECLewEWBeYqLztGFdaqcZb1f_E4xtCDtvBL-eSqDVQP9Ro73RjX_6Z9AGrABzVkUtK8r8UtDIU6SNEuXZK1SZmIWpUpMS4eUV9F6GvdmLBsk9G7dXjWVcpgDA6JIi8HAbpitrEltJFmREirIy6_st4-K28SLDI4lemBLwGU2btkenhKFGqvxv5rphWzEtgHbHS7hWQ7ZedaU4sq5smmJ_mZYwpkco0LCOepQyHVxrYkJi8AwgoHp2XVskGEbiqkP6F65gEZwp2_bfYPbuSrpFbJd5YF2X5u42wuPkoS4hECUch0CTD9y5ti3vBgjE8ZXEbWnvpGNQ_eYbvtF-3JCjHPAQNGI9uFTs1t6-MJgYcsqU8wk8oDzwHGq8mXXtUf0Q92aBWHktHTciquWfWktVJH7ZPh4gMOwdhxVBQHM1gdBtzQSSUJwO79NzAdUoBWtSKlTctI-LnXid2NOGgfA3I28WkJbxc7mh9ZY8cNTSNcQY6xtfNHZAxCAxv9aIN3CQY1WopZjOC6WjaMxECoRCC3zCoYavFIeZEkWatyBGUfmBQ-AyHIP_chqS52AhpHL-6rdUMokj9OIodSvhS9voWv-2TZonM4lxjurHGvK6OY8UFzD1Jz5POiPlucfVcpMCvXuiMmDtjtxsIsktRQfmdG2CeoUJHO2lN-8hk26RYsnQJDGbfQucGSHPzWLvhEAd7zmvzFVv4W0rAQl8wsVZsORus-C9kUfH14YcL31rHz8W8AguwEfuzqZdX1EhfiX4bzIkZKRpTrtpI_ldDenWpv8NxDwmPim0As8D43zUOuo-88ua1i16JMVN7aZbfYuLIohQnU2TMTKRS7f8p4reNbrGrFx0gXOtl6MeLwToP74QzypyBWL-RjFRwLR-b39FJCcbdnpkI3wZdeUA3gzOnm3y6l22y7wgrpOCmN-VAshTRjSg-7bFk6S_9tIMvIgEOzS570PS1uLvqTs89XaTSBH16yIMMUlpT-e7D1ngTQDxP5Ln3Ez=s512" alt="Machine Learning Article" class="blog-image h-48 w-full object-cover">
+                <img src="https://images.unsplash.com/photo-1625535069703-a67ae00bd6de?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Getting Started with Machine Learning" class="h-48 w-full object-cover grayscale transition-all duration-300 group-hover:grayscale-0">
+                <div class="p-6">
+                    <div class="flex items-center justify-between text-sm text-muted-foreground mb-4">
+                        <span class="flex items-center gap-1">
+                            <i data-lucide="calendar" class="h-4 w-4"></i>
+                            Dec 10, 2024
+                        </span>
+                        <span class="flex items-center gap-1">
+                            <i data-lucide="user" class="h-4 w-4"></i>
+                            By Jane Doe
+                        </span>
                     </div>
-                    <div class="p-6">
-                        <div class="flex items-center justify-between text-sm text-muted-foreground mb-4">
-                            <span class="flex items-center gap-1">
-                                <i data-lucide="calendar" class="h-4 w-4"></i>
-                                Dec 12, 2024
-                            </span>
-                            <span class="flex items-center gap-1">
-                                <i data-lucide="user" class="h-4 w-4"></i>
-                                By John Smith
-                            </span>
-                        </div>
-                        <h3 class="text-xl font-bold mb-2 text-card-foreground transition-colors group-hover:text-primary-500">
-                            A Beginner's Guide to Machine Learning Algorithms
-                        </h3>
-                        <p class="text-sm text-muted-foreground mb-4">
-                            Intimidated by machine learning? Our step-by-step guide breaks down the core concepts and the most popular algorithms you need to know.
-                        </p>
-                        <div class="inline-flex items-center text-primary-500 font-semibold transition-transform duration-300 group-hover:translate-x-2">
-                            Read More
-                            <i data-lucide="arrow-right" class="ml-2 h-4 w-4"></i>
-                        </div>
+                    <h3 class="text-xl font-bold mb-2 text-card-foreground transition-colors group-hover:text-primary-500">
+                        The Rise of Generative AI: From GPT-4 to DALL-E 3
+                    </h3>
+                    <p class="text-sm text-muted-foreground mb-4">
+                        Explore how generative AI is revolutionizing industries and creativity. We dive deep into the technology behind popular models like GPT-4 and DALL-E 3.
+                    </p>
+                    <div class="inline-flex items-center text-primary-500 font-semibold transition-transform duration-300 group-hover:translate-x-2">
+                        Read More
+                        <i data-lucide="arrow-right" class="ml-2 h-4 w-4"></i>
                     </div>
-                </a>
+                </div>
+            </a>
 
-                <a href="blog-details.html" class="group blog-card overflow-hidden rounded-lg border border-border/20 bg-card/50 backdrop-blur-sm shadow-lg" data-aos="fade-up" data-aos-delay="300">
-                    <div class="overflow-hidden">
-                        <img src="https://lh3.googleusercontent.com/rd-gg-dl/AJfQ9KRxdHoAO8I4xIwbBhkOUvm0wm-RaJO96Lx5OCjpSwQcTmfDi-1lbmtSL3oqgHEL2ZFEQGTRp_0zvOAwFs2PfjBvFGXJGfBwlG657gE5EVw8JgnuPb2ja1iVsJqoKlfxzdAnIFb5-vyYk77QsXUp9vc0bpyCHHPhChPOWGZbyujzVdtpM802loEqpLFk2VhcfXDCrWZTU039emM-XOgsZqDHwLssQplJXLEey-w5SM2DpxEyTgU8i8AlC85cf-ELRWA3l_DeAkFo9p64KemcanvVBuzPvtaj1wRGyo699Lteplt_9T1tVYwPf_crofJiYIkbRHMQNhCDkHEQQKSvWR2lC9f--nzl1fbZxgOBiNda8-PZ8dzKJmfRkvK2kXifWZYJ33kMnN1OjA54cBuTJGL8u6onkX22t_cZNt8bjR6E1UeymSpogNpjwB2Q97Q1-pA4R5znh8Q4J0yx-y-I1g_mM0yFWCLs83Yd4C_Ym-8ZRlj7HGkvy61dbZmOYb5k9pQ-ROgBQh2fKneRGnMW7xQGDNBh1RJn_oFkFSEqb_4jDPHu4GtcBadzVSUs4SeaMrsqvJLVBrqoUKJkhc7hHETep_yf9YUOT1bWSX_Z_51w_5ep5UBlKV0IbS3rOYJXYoi8xBnS1UFuvZcWomvIpck-T59vxi7g37CLxrPt9o6sy6fr1YhltCdCoIty6ZWw6O6cf-ELw7MyR6r93YwuE0xqHOPebrrcVJTf97m6Z66hHeZImC70FCdSNbbOO6jTWnhBB6fRhPIfeLpIcwTpSRaQEJTT2nLYHHyv8nuviMzdUbaHZsR9MoSGyMBT5kNPpSbwvrr3vCdLRdMEdN1-VW_H52teOmwTi0Y5j71hVDo0JNbGZYMbkSatdfH5DII0XVgO23QtZtG7YG_T0qO1QSZcnLeIfTkEOLQWVD74uXGRuxR8pm6TX3lN58YgaLzvPafWztJsduIDFIGKAsgGBrzN0uIOV2Phr4cF_fVsORsECZaepDbJeUS4YsrQ-WN94eHQuxHwKHy0sIe8gk5I_9SaJTXnhpSnuf1Ca5fqgP8u_QPSGb3cinzsmFTE3Vvpw0B_-s32B4gurGiF3gcJz39JoQ1sZshF8lArWUxlp7HJU75QzQR7NwDgNk3zmRyoFGkeoSTiySvDewQWRlD0MpZRsdb3j1Bo2ccZe4lSqs4n5C5sCXDoR2Yul7wBDiPJQbo29vZaBKGVhofi2w2hcxhvr7U8PT3nGVeIDy7FKHeWI3TG0A3sNKX2_tmQbUl381lRPPzBPHndZeexztFA_gCjdR3gJhSPId6_yAQ_xv7hac9Oa_HNhFmt7Yu5NRDVniRqwlojf9tcPxBjOxDUXKOgoDRmsD81dVA0vGApQHrvUz362DQk3g=s512" alt="Career Paths Article" class="blog-image h-48 w-full object-cover">
+            <a href="blog-details.html" class="group card-hover overflow-hidden rounded-lg border border-border/20 bg-card/50 backdrop-blur-sm shadow-lg transition-all duration-300" data-aos="fade-up" data-aos-delay="200">
+                <img src="https://images.unsplash.com/photo-1649451844813-3130d6f42f8a?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Getting Started with Machine Learning" class="h-48 w-full object-cover grayscale transition-all duration-300 group-hover:grayscale-0">
+                <div class="p-6">
+                    <div class="flex items-center justify-between text-sm text-muted-foreground mb-4">
+                        <span class="flex items-center gap-1">
+                            <i data-lucide="calendar" class="h-4 w-4"></i>
+                            Nov 28, 2024
+                        </span>
+                        <span class="flex items-center gap-1">
+                            <i data-lucide="user" class="h-4 w-4"></i>
+                            By John Smith
+                        </span>
                     </div>
-                    <div class="p-6">
-                        <div class="flex items-center justify-between text-sm text-muted-foreground mb-4">
-                            <span class="flex items-center gap-1">
-                                <i data-lucide="calendar" class="h-4 w-4"></i>
-                                Nov 28, 2024
-                            </span>
-                            <span class="flex items-center gap-1">
-                                <i data-lucide="user" class="h-4 w-4"></i>
-                                By Alex Chen
-                            </span>
-                        </div>
-                        <h3 class="text-xl font-bold mb-2 text-card-foreground transition-colors group-hover:text-primary-500">
-                            Top 5 High-Paying Career Paths in the AI Industry
-                        </h3>
-                        <p class="text-sm text-muted-foreground mb-4">
-                            AI is more than just data science. Learn about the diverse roles, from AI Product Manager to Robotics Engineer, and find the perfect fit for you.
-                        </p>
-                        <div class="inline-flex items-center text-primary-500 font-semibold transition-transform duration-300 group-hover:translate-x-2">
-                            Read More
-                            <i data-lucide="arrow-right" class="ml-2 h-4 w-4"></i>
-                        </div>
+                    <h3 class="text-xl font-bold mb-2 text-card-foreground transition-colors group-hover:text-primary-500">
+                        A Beginner's Guide: Your First Steps into Machine Learning
+                    </h3>
+                    <p class="text-sm text-muted-foreground mb-4">
+                        Intimidated by machine learning? Our step-by-step guide breaks down the core concepts and tools you need to build your very first ML model.
+                    </p>
+                    <div class="inline-flex items-center text-primary-500 font-semibold transition-transform duration-300 group-hover:translate-x-2">
+                        Read More
+                        <i data-lucide="arrow-right" class="ml-2 h-4 w-4"></i>
                     </div>
-                </a>
-                <a href="blog-details.html" class="group blog-card overflow-hidden rounded-lg border border-border/20 bg-card/50 backdrop-blur-sm shadow-lg" data-aos="fade-up" data-aos-delay="100">
-                    <div class="overflow-hidden">
-                        <img src="https://lh3.googleusercontent.com/rd-gg-dl/AJfQ9KQF0hSgyUTXzZPgGqVXI4BNTil68I0BHQiLro-zMQNoMsG05fmb-fONagz9PGy1ovL_sojd-VR0_AkoLBiPCZ3N1utRIBG8k6o1l0yh8r50RqFVNeu9iDHuNul2o4hstheWskzuOAhfQzI8HPxqmAtBfkJIOyJ451GTdO2Tpd8w7sRIBbPKJwt25vcPh0Er3F2jmWhNLl5CY7GmkK4j2-F8Bvt5Ph-eSYVQbSUHdy4p0_1c4_dT0aZncocjxh_CO86YERTYMR6pL8F1jDjnbuo0ezrEd-b66hZE14fXWMXAPW8Hd8j4ErhmMDyKy5YOqaNILo1JVBHcBlQZZW44zjgdbq5pDKvtp9C45Lc-6H39WEeq8y9twaS2dYobuOoEL4mzypcmguNKsRHdmMsZmxZzADx00wkAQW4Gj24WYnLPVH5BjJDpnrK9qrFU_xk0AJT2jAynLK9wlQU3fWubKQymjARviFRR7UBj9yx6plqrNO-WNNwYHjtfzbLFRu2-Bp4VNHsCS8mN2DlXnjXYYv3Xxa24YxUd5KaEBaGVRjuWGbjbO9eRVMopHtR6r9fJiZhvrFmjVl8AFUgzAUqMszT-D-JQUsgni1kSuxKD_-ViY_ZAMbir2_cldTKwSQ98FlYBGOBlyEM0zIksxdeiiBT9lPuhaH_gl2Nv4a9py1DMuiTE7EN193vjZA54kvdQ5EBiTpJLH0Hqt7sb0A_SHnUWBu_rpIX5zpYgqcK-uLpkJAUwZcV3aW38PhedE7NK_SgGeLNn-dZ68ZWk98q-RQvudNw4BnB7Kszr6vxccJhUtVCsZoWTrrwt79ItuCOVV0F8TcB-3eI8i3h4N1osODIDtD968sPzRZDTSx614xpk8M4YJDq6HUDzh9Dvd8n9RNlivzwBcl8ahZwF5KeS5yClUq3xAmxhX2q-FcVabJwF5Zg2TaxtfYh1J9isTxNPUSWlGwc4Rv0ACvn5NnP-biGVXUCvjm7Ku5Kk7-14ZPfDsR5XMbL2S5J16BmGWG-sqTcA_rWxaX51ZVmujMGN02rRvIHd0RVj4EkcwsehpWWa7b3HwunBt_aWeCc40qclasTCefS_7mJoXMLSFVE1dcTH2xW5yVu-U85-3P9YuEQFLI-QQdCblMviXJ62SYC69V_LmYVTeZcYTfqM2V4w-T_tvwO1EvkAn3gM6X1NV20EV0fRjj9Rr0GhhfudbjdX_bIDwqJEnFl0BjFLuPri6albE4oqYMnm9txUccl3CkhGkQ2CRfZr5qXfR6I280HpMW4GOWSf1QllOqPUJ070lb_YW8zMnJ_8bKmoU6wS6r0KLuZdAahZP-wvP0Jp7nEHpigFFCr2JRyTAGE2ijSmUuFHElW_BL_SyrEzitwjQTSkztXH4RBU=s512" alt="Generative AI Article" class="blog-image h-48 w-full object-cover">
-                    </div>
-                    <div class="p-6">
-                        <div class="flex items-center justify-between text-sm text-muted-foreground mb-4">
-                            <span class="flex items-center gap-1">
-                                <i data-lucide="calendar" class="h-4 w-4"></i>
-                                Dec 15, 2024
-                            </span>
-                            <span class="flex items-center gap-1">
-                                <i data-lucide="user" class="h-4 w-4"></i>
-                                By Jane Doe
-                            </span>
-                        </div>
-                        <h3 class="text-xl font-bold mb-2 text-card-foreground transition-colors group-hover:text-primary-500">
-                            The Rise of Generative AI: From GPT-4 to DALL-E 3
-                        </h3>
-                        <p class="text-sm text-muted-foreground mb-4">
-                            Explore how generative AI is revolutionizing industries and creativity. We dive deep into the technology behind popular models like GPT-4 and DALL-E 3.
-                        </p>
-                        <div class="inline-flex items-center text-primary-500 font-semibold transition-transform duration-300 group-hover:translate-x-2">
-                            Read More
-                            <i data-lucide="arrow-right" class="ml-2 h-4 w-4"></i>
-                        </div>
-                    </div>
-                </a>
+                </div>
+            </a>
 
-                <a href="blog-details.html" class="group blog-card overflow-hidden rounded-lg border border-border/20 bg-card/50 backdrop-blur-sm shadow-lg" data-aos="fade-up" data-aos-delay="200">
-                    <div class="overflow-hidden">
-                        <img src="https://lh3.googleusercontent.com/rd-gg-dl/AJfQ9KTJIZXGFc-0fE_BjfthRVxiEF5S-OlFJrtldb5PFpn1sUsnk6LtSptEahDlTVczX54ukA1v4I0QymJMcJn01QKXg9eo_OKWxmuZkaDK8KXNtuIUyZyOfbwcVOehxDrXcJCHvgcbHW_XC9Q3oPgiuZbNS4lddr5PPRVjK6h_SowqHDBHvszj-iwiTqV6ROhCzQEaDa3rQ10nl3AGZVdEOlHVSvhGadjSnQTpAr604QJZmbubGJ5vJ7BR28lLep39jfvzesZl8fLg1lXDOZiShDwQV-SdJhI8sOi7j9mh2F0Ptzeb_nwLcXHjg_dweJJST-y3on6gZmeeRyeaDtLsSDi7WhiTq2JGqOGw_oo292KcoBnwMEeHU1Szni-T1KmVECLewEWBeYqLztGFdaqcZb1f_E4xtCDtvBL-eSqDVQP9Ro73RjX_6Z9AGrABzVkUtK8r8UtDIU6SNEuXZK1SZmIWpUpMS4eUV9F6GvdmLBsk9G7dXjWVcpgDA6JIi8HAbpitrEltJFmREirIy6_st4-K28SLDI4lemBLwGU2btkenhKFGqvxv5rphWzEtgHbHS7hWQ7ZedaU4sq5smmJ_mZYwpkco0LCOepQyHVxrYkJi8AwgoHp2XVskGEbiqkP6F65gEZwp2_bfYPbuSrpFbJd5YF2X5u42wuPkoS4hECUch0CTD9y5ti3vBgjE8ZXEbWnvpGNQ_eYbvtF-3JCjHPAQNGI9uFTs1t6-MJgYcsqU8wk8oDzwHGq8mXXtUf0Q92aBWHktHTciquWfWktVJH7ZPh4gMOwdhxVBQHM1gdBtzQSSUJwO79NzAdUoBWtSKlTctI-LnXid2NOGgfA3I28WkJbxc7mh9ZY8cNTSNcQY6xtfNHZAxCAxv9aIN3CQY1WopZjOC6WjaMxECoRCC3zCoYavFIeZEkWatyBGUfmBQ-AyHIP_chqS52AhpHL-6rdUMokj9OIodSvhS9voWv-2TZonM4lxjurHGvK6OY8UFzD1Jz5POiPlucfVcpMCvXuiMmDtjtxsIsktRQfmdG2CeoUJHO2lN-8hk26RYsnQJDGbfQucGSHPzWLvhEAd7zmvzFVv4W0rAQl8wsVZsORus-C9kUfH14YcL31rHz8W8AguwEfuzqZdX1EhfiX4bzIkZKRpTrtpI_ldDenWpv8NxDwmPim0As8D43zUOuo-88ua1i16JMVN7aZbfYuLIohQnU2TMTKRS7f8p4reNbrGrFx0gXOtl6MeLwToP74QzypyBWL-RjFRwLR-b39FJCcbdnpkI3wZdeUA3gzOnm3y6l22y7wgrpOCmN-VAshTRjSg-7bFk6S_9tIMvIgEOzS570PS1uLvqTs89XaTSBH16yIMMUlpT-e7D1ngTQDxP5Ln3Ez=s512" alt="Machine Learning Article" class="blog-image h-48 w-full object-cover">
+            <a href="blog-details.html" class="group card-hover overflow-hidden rounded-lg border border-border/20 bg-card/50 backdrop-blur-sm shadow-lg transition-all duration-300" data-aos="fade-up" data-aos-delay="300">
+                <img src="https://images.unsplash.com/photo-1509718443690-d8e2fb3474b7?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Career Paths in AI" class="h-48 w-full object-cover grayscale transition-all duration-300 group-hover:grayscale-0">
+                <div class="p-6">
+                    <div class="flex items-center justify-between text-sm text-muted-foreground mb-4">
+                        <span class="flex items-center gap-1">
+                            <i data-lucide="calendar" class="h-4 w-4"></i>
+                            Nov 15, 2024
+                        </span>
+                        <span class="flex items-center gap-1">
+                            <i data-lucide="user" class="h-4 w-4"></i>
+                            By Alex Chen
+                        </span>
                     </div>
-                    <div class="p-6">
-                        <div class="flex items-center justify-between text-sm text-muted-foreground mb-4">
-                            <span class="flex items-center gap-1">
-                                <i data-lucide="calendar" class="h-4 w-4"></i>
-                                Dec 12, 2024
-                            </span>
-                            <span class="flex items-center gap-1">
-                                <i data-lucide="user" class="h-4 w-4"></i>
-                                By John Smith
-                            </span>
-                        </div>
-                        <h3 class="text-xl font-bold mb-2 text-card-foreground transition-colors group-hover:text-primary-500">
-                            A Beginner's Guide to Machine Learning Algorithms
-                        </h3>
-                        <p class="text-sm text-muted-foreground mb-4">
-                            Intimidated by machine learning? Our step-by-step guide breaks down the core concepts and the most popular algorithms you need to know.
-                        </p>
-                        <div class="inline-flex items-center text-primary-500 font-semibold transition-transform duration-300 group-hover:translate-x-2">
-                            Read More
-                            <i data-lucide="arrow-right" class="ml-2 h-4 w-4"></i>
-                        </div>
+                    <h3 class="text-xl font-bold mb-2 text-card-foreground transition-colors group-hover:text-primary-500">
+                        Beyond the Hype: Top 5 Career Paths in the AI Industry
+                    </h3>
+                    <p class="text-sm text-muted-foreground mb-4">
+                        AI is more than just data science. Learn about the diverse roles, from AI Product Manager to Robotics Engineer, and find the perfect fit for you.
+                    </p>
+                    <div class="inline-flex items-center text-primary-500 font-semibold transition-transform duration-300 group-hover:translate-x-2">
+                        Read More
+                        <i data-lucide="arrow-right" class="ml-2 h-4 w-4"></i>
                     </div>
-                </a>
-
-                <a href="blog-details.html" class="group blog-card overflow-hidden rounded-lg border border-border/20 bg-card/50 backdrop-blur-sm shadow-lg" data-aos="fade-up" data-aos-delay="300">
-                    <div class="overflow-hidden">
-                        <img src="https://lh3.googleusercontent.com/rd-gg-dl/AJfQ9KRxdHoAO8I4xIwbBhkOUvm0wm-RaJO96Lx5OCjpSwQcTmfDi-1lbmtSL3oqgHEL2ZFEQGTRp_0zvOAwFs2PfjBvFGXJGfBwlG657gE5EVw8JgnuPb2ja1iVsJqoKlfxzdAnIFb5-vyYk77QsXUp9vc0bpyCHHPhChPOWGZbyujzVdtpM802loEqpLFk2VhcfXDCrWZTU039emM-XOgsZqDHwLssQplJXLEey-w5SM2DpxEyTgU8i8AlC85cf-ELRWA3l_DeAkFo9p64KemcanvVBuzPvtaj1wRGyo699Lteplt_9T1tVYwPf_crofJiYIkbRHMQNhCDkHEQQKSvWR2lC9f--nzl1fbZxgOBiNda8-PZ8dzKJmfRkvK2kXifWZYJ33kMnN1OjA54cBuTJGL8u6onkX22t_cZNt8bjR6E1UeymSpogNpjwB2Q97Q1-pA4R5znh8Q4J0yx-y-I1g_mM0yFWCLs83Yd4C_Ym-8ZRlj7HGkvy61dbZmOYb5k9pQ-ROgBQh2fKneRGnMW7xQGDNBh1RJn_oFkFSEqb_4jDPHu4GtcBadzVSUs4SeaMrsqvJLVBrqoUKJkhc7hHETep_yf9YUOT1bWSX_Z_51w_5ep5UBlKV0IbS3rOYJXYoi8xBnS1UFuvZcWomvIpck-T59vxi7g37CLxrPt9o6sy6fr1YhltCdCoIty6ZWw6O6cf-ELw7MyR6r93YwuE0xqHOPebrrcVJTf97m6Z66hHeZImC70FCdSNbbOO6jTWnhBB6fRhPIfeLpIcwTpSRaQEJTT2nLYHHyv8nuviMzdUbaHZsR9MoSGyMBT5kNPpSbwvrr3vCdLRdMEdN1-VW_H52teOmwTi0Y5j71hVDo0JNbGZYMbkSatdfH5DII0XVgO23QtZtG7YG_T0qO1QSZcnLeIfTkEOLQWVD74uXGRuxR8pm6TX3lN58YgaLzvPafWztJsduIDFIGKAsgGBrzN0uIOV2Phr4cF_fVsORsECZaepDbJeUS4YsrQ-WN94eHQuxHwKHy0sIe8gk5I_9SaJTXnhpSnuf1Ca5fqgP8u_QPSGb3cinzsmFTE3Vvpw0B_-s32B4gurGiF3gcJz39JoQ1sZshF8lArWUxlp7HJU75QzQR7NwDgNk3zmRyoFGkeoSTiySvDewQWRlD0MpZRsdb3j1Bo2ccZe4lSqs4n5C5sCXDoR2Yul7wBDiPJQbo29vZaBKGVhofi2w2hcxhvr7U8PT3nGVeIDy7FKHeWI3TG0A3sNKX2_tmQbUl381lRPPzBPHndZeexztFA_gCjdR3gJhSPId6_yAQ_xv7hac9Oa_HNhFmt7Yu5NRDVniRqwlojf9tcPxBjOxDUXKOgoDRmsD81dVA0vGApQHrvUz362DQk3g=s512" alt="Career Paths Article" class="blog-image h-48 w-full object-cover">
-                    </div>
-                    <div class="p-6">
-                        <div class="flex items-center justify-between text-sm text-muted-foreground mb-4">
-                            <span class="flex items-center gap-1">
-                                <i data-lucide="calendar" class="h-4 w-4"></i>
-                                Nov 28, 2024
-                            </span>
-                            <span class="flex items-center gap-1">
-                                <i data-lucide="user" class="h-4 w-4"></i>
-                                By Alex Chen
-                            </span>
-                        </div>
-                        <h3 class="text-xl font-bold mb-2 text-card-foreground transition-colors group-hover:text-primary-500">
-                            Top 5 High-Paying Career Paths in the AI Industry
-                        </h3>
-                        <p class="text-sm text-muted-foreground mb-4">
-                            AI is more than just data science. Learn about the diverse roles, from AI Product Manager to Robotics Engineer, and find the perfect fit for you.
-                        </p>
-                        <div class="inline-flex items-center text-primary-500 font-semibold transition-transform duration-300 group-hover:translate-x-2">
-                            Read More
-                            <i data-lucide="arrow-right" class="ml-2 h-4 w-4"></i>
-                        </div>
-                    </div>
-                </a>
-
-            </div>
+                </div>
+            </a>
+        </div>
         </div>
     </section>
 
@@ -631,79 +362,7 @@
         </div>
     </footer>
     
-    <script>
-        // Initialize Lucide icons
-        lucide.createIcons();
-        
-        // Initialize AOS
-        AOS.init({
-            duration: 1000,
-            once: true,
-        });
+<script src="main.js"></script>
 
-        
-// এখানে নতুন মোবাইল মেনু টগল ফাংশন যোগ করা হয়েছে
-    document.addEventListener('DOMContentLoaded', () => {
-        const mobileMenuButton = document.getElementById('mobile-menu-button');
-        const mobileMenu = document.getElementById('mobile-menu');
-
-        mobileMenuButton.addEventListener('click', () => {
-            const isMenuOpen = mobileMenu.classList.contains('translate-y-0');
-            const menuIcon = mobileMenuButton.querySelector('i');
-
-            if (isMenuOpen) {
-                // মেনু বন্ধ করার জন্য
-                mobileMenu.classList.remove('flex', 'translate-y-0');
-                mobileMenu.classList.add('hidden', '-translate-y-full');
-                menuIcon.setAttribute('data-lucide', 'menu');
-            } else {
-                // মেনু খোলার জন্য
-                mobileMenu.classList.remove('hidden', '-translate-y-full');
-                mobileMenu.classList.add('flex', 'translate-y-0');
-                menuIcon.setAttribute('data-lucide', 'x');
-            }
-            // আইকন আপডেট করা
-            lucide.createIcons();
-        });
-
-        // মেনু অপশনের লিঙ্কে ক্লিক করলে মেনু বন্ধ হবে
-        const menuLinks = mobileMenu.querySelectorAll('a');
-        menuLinks.forEach(link => {
-            link.addEventListener('click', () => {
-                mobileMenu.classList.remove('flex', 'translate-y-0');
-                mobileMenu.classList.add('hidden', '-translate-y-full');
-                mobileMenuButton.querySelector('i').setAttribute('data-lucide', 'menu');
-                lucide.createIcons();
-            });
-        });
-
-        // অন্যান্য স্ক্রিপ্ট যেমন countdown, testimonial slider, FAQ accordion ইত্যাদি এখানে থাকবে
-        // ... (আপনার আগের কোড)
-    });
-
-        // Smooth scrolling for navigation links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            });
-        });
-
-        // Add scroll effect for header
-        window.addEventListener('scroll', () => {
-            const header = document.querySelector('header');
-            if (window.scrollY > 100) {
-                header.style.backgroundColor = 'rgba(15, 23, 42, 0.95)';
-            } else {
-                header.style.backgroundColor = 'rgba(15, 23, 42, 0.9)';
-            }
-        });
-    </script>
 </body>
 </html>
